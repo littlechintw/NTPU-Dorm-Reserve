@@ -1,0 +1,556 @@
+<template>
+  <v-card elevation="0">
+    <v-container v-show="healthWrite" fluid>
+      <v-row>
+        <v-col cols="12">
+          <v-row align="center" justify="center" length><br /></v-row>
+          <v-row v-show="!loginStatus" align="center" justify="center" length>
+            <about />
+          </v-row>
+
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <h1>{{ userData.building }}</h1>
+          </v-row>
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <h3>房床位: {{ userData.room }}</h3>
+          </v-row>
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <h3>{{ userData.note }}</h3>
+          </v-row>
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <div style="padding-top: 80px" />
+          </v-row>
+
+          <v-row
+            v-show="userData.reserve"
+            align="center"
+            justify="center"
+            length
+          >
+            <v-card elevation="0">
+              <v-card v-show="userData.reserve" elevation="0">
+                <h2 style="width: 100%; text-align: center">
+                  🔻進入宿舍時段選擇🔻
+                </h2>
+                <v-radio-group v-model="radios">
+                  <v-radio
+                    v-for="item in statusData"
+                    :key="item"
+                    :value="item.uuid"
+                  >
+                    <template v-slot:label>
+                      <div
+                        :style="
+                          chipGetColor(item.currentPeople, item.maxPeople)
+                        "
+                      >
+                        {{ item.date }}
+                        <div style="width: 10px; display: inline-block" />
+                        {{ item.time }}
+                        <div style="width: 10px; display: inline-block" />
+                        本時段還可預約
+                        <div
+                          style="
+                            width: 20px;
+                            display: inline-block;
+                            text-align: center;
+                          "
+                        >
+                          {{ item.maxPeople - item.currentPeople }}
+                        </div>
+                        人
+                      </div>
+                      <div style="height: 50px" />
+                    </template>
+                  </v-radio>
+                </v-radio-group>
+                <!-- <v-data-table
+                  :headers="headers"
+                  :items="statusData"
+                  items-per-page="50"
+                >
+                  <template v-slot:item.date="{ item }">
+                    <h3 style="color: #2b7a78">
+                      {{ item.date }}
+                    </h3>
+                  </template>
+
+                  <template v-slot:item.time="{ item }">
+                    <h3 style="color: #2b7a78">
+                      {{ item.time }}
+                    </h3>
+                  </template>
+
+                  <template v-slot:item.currentPeople="{ item }">
+                    <v-chip
+                      :color="chipGetColor(item.currentPeople, item.maxPeople)"
+                      dark
+                    >
+                      {{ item.currentPeople }}
+                    </v-chip>
+                  </template>
+
+                  <template v-slot:item.uuid="{ item }">
+                    <v-btn
+                      v-show="item.serve"
+                      @click="reserveBtn(item)"
+                      elevation="2"
+                      outlined
+                      plain
+                      raised
+                      small
+                      >預約 / Reserve</v-btn
+                    >
+                    <h3 v-show="!item.serve" style="color: #e76f51">⛔</h3>
+                  </template>
+                </v-data-table> -->
+
+                <v-row align="center" justify="left" length>
+                  <br /><br />
+                </v-row>
+              </v-card>
+            </v-card>
+          </v-row>
+
+          <v-row v-show="loginStatus" align="center" justify="center" length>
+            <v-overlay :value="overlayLoading">
+              <v-progress-circular
+                indeterminate
+                size="64"
+              ></v-progress-circular>
+            </v-overlay>
+
+            <v-overlay :z-index="zIndex" :value="overlay">
+              <v-card
+                class="mx-auto text-left overflow-y-auto"
+                outlined
+                v-click-outside="overlayOutside"
+              >
+                <v-card-title> 確定要預約這個時段嗎？ </v-card-title>
+                <v-card-subtitle> Please comfirm the time! </v-card-subtitle>
+                <v-card-text>
+                  <h3>{{ overlayData.date }}</h3>
+                  <h3>{{ overlayData.time }}</h3>
+                  <h3 style="color: #c75497">{{ overlayCheckIn }}</h3>
+                  <h3 style="color: #c75497">{{ overlayCheck }}</h3>
+                  <br />
+                  <h3>是否申請停車折扣代碼券？</h3>
+                  <h4>Need parking discount coupon?</h4>
+                  <v-radio-group v-model="parking" row>
+                    <v-radio label="是 / Yes" value="yes"></v-radio>
+                    <v-radio label="否 / No" value="no"></v-radio>
+                  </v-radio-group>
+                  <h3 style="color: #c75497">按下確認按鈕後，將無法修改</h3>
+                  <h3 style="color: #c75497">
+                    It will can't edit after confirm!
+                  </h3>
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                    class="white--text"
+                    color="#2a9d8f"
+                    @click="reserveSend(overlayData.uuid)"
+                  >
+                    確定 / Comfirm
+                  </v-btn>
+
+                  <v-btn
+                    class="white--text"
+                    color="#e76f51"
+                    @click="overlay = false"
+                  >
+                    取消 / Cancel
+                  </v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-overlay>
+          </v-row>
+          <v-row align="center" justify="center" length><br /></v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container v-show="!healthWrite" fluid>
+      <v-row>
+        <v-col cols="12">
+          <v-row align="center" justify="center" length><br /></v-row>
+          <v-row v-show="!loginStatus" align="center" justify="center" length>
+            <about />
+          </v-row>
+
+          <div v-show="loginStatus">
+            <v-row align="center" justify="center" length>
+              <h1>健康聲明</h1>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <br />
+              <v-chip class="ma-2" color="green" outlined>
+                北大宿舍開宿
+              </v-chip>
+              <br />
+            </v-row>
+            <v-row
+              align="center"
+              justify="center"
+              length
+              v-show="!summit_open && init"
+            >
+              <v-chip class="ma-2" color="red" outlined>
+                目前非開放時間
+              </v-chip>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <v-form ref="form" v-model="valid">
+                <v-text-field
+                  v-model="stu_id"
+                  type="number"
+                  label="學號 / Student ID"
+                  required
+                  disabled
+                ></v-text-field
+                ><v-text-field
+                  v-model="phone"
+                  :rules="idPhone"
+                  type="number"
+                  label="電話 / Phone"
+                  required
+                ></v-text-field>
+                <v-checkbox
+                  v-model="checkbox_law1"
+                  :rules="[(v) => !!v || 'You must agree to continue!']"
+                  label="本人非臺灣疾管署具感染風險民眾追蹤管理機制之對象
+                    (居家隔離/居家檢疫/自主健康管理)；另未與前述對象接觸或同居。"
+                  required
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="checkbox_law2"
+                  :rules="[(v) => !!v || 'You must agree to continue!']"
+                  label="本人未有疑似呼吸道不適症狀
+                    (咳嗽/流鼻水/鼻塞/喉嚨痛/呼吸喘)，且未發燒 (額溫 &lt;
+                    37.5°C、耳溫 &lt; 38°C)。"
+                  required
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="checkbox_law3"
+                  :rules="[(v) => !!v || 'You must agree to continue!']"
+                  label="本人於 9/03 ~ 9/21 未曾於臺灣境外、高風險地區活動或已經完成隔離等防疫作業"
+                  required
+                ></v-checkbox>
+                <v-checkbox
+                  v-model="checkbox_law_data"
+                  :rules="[(v) => !!v || 'You must agree to continue!']"
+                  label="本人已閱讀以下說明並願意提供資料，且以上所有資訊正確無誤。"
+                  required
+                ></v-checkbox>
+                <div>
+                  <v-btn
+                    :disabled="!checkbox_law_data"
+                    color="success"
+                    class="mr-4"
+                    @click="healthBtn"
+                    >送出</v-btn
+                  >
+                </div>
+                <p style="font-size: 12px; color: red">{{ error_msg }}</p>
+              </v-form>
+            </v-row>
+
+            <div style="height: 50px" />
+
+            <v-row>
+              <v-card class="mx-auto" width="344" :disabled="!init">
+                <v-container fluid style="text-align: center; width: 87%">
+                  <p style="font-size: 16px">個人資料使用說明</p>
+                  <p style="font-size: 12px">
+                    (一)蒐集機關之名稱：國立臺北大學 學務處 住宿輔導組
+                  </p>
+                  <p style="font-size: 12px">
+                    (二)蒐集之目的：防疫目的，依據「個人資料保護法之特定目的及個人資料之類別」為代號012公共衛生或傳染病防治之特定目的，且不得為目的外利用。
+                  </p>
+                  <p style="font-size: 12px">
+                    (三)蒐集之個人資料項目：學號、電話。
+                  </p>
+                  <p style="font-size: 12px">
+                    (四)個人資料利用之期間：自蒐集日起28日內。
+                  </p>
+                  <p style="font-size: 12px">
+                    (五)個人資料利用之對象及方式：為防堵疫情而有必要時，得提供衛生主管機關依傳染病防治法等規定進行疫情調查及聯繫使用。
+                  </p>
+                  <p style="font-size: 12px">
+                    (六)當事人就其個人資料得依個人資料保護法規定，向蒐集之機關行使權利，包括查詢或請求閱覽、請求製給複製本、請求補充或更正、請求蒐集、處理或利用、請求刪除，及行使方式。
+                  </p>
+                  <p style="font-size: 12px">
+                    (七)當事人不同意提供個人資料對其權益之影響，不得參與活動。
+                  </p>
+                </v-container>
+              </v-card>
+            </v-row>
+          </div>
+
+          <v-row align="center" justify="center" length><br /></v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+    <div style="height: 50px" />
+
+    <v-overlay v-show="initOverlay">
+      <v-progress-circular indeterminate size="64"> </v-progress-circular>
+    </v-overlay>
+  </v-card>
+</template>
+
+<script>
+import About from "../components/About";
+const axios = require("axios");
+var config = require("../../config.json");
+let Base64 = require("js-base64").Base64;
+
+export default {
+  name: "Home",
+  data() {
+    return {
+      initOverlay: true,
+      healthWrite: false,
+      window_height: 100,
+      window_width: 100,
+      overlay: false,
+      overlayLoading: false,
+      overlayData: {
+        date: "N/A",
+        time: "N/A",
+        currnetPeople: "N/A",
+        maxPeople: "N/A",
+        uuid: "N/A",
+        serve: false,
+      },
+      overlayCheckIn: "N/A",
+      overlayCheck: "N/A",
+      loginStatus: false,
+      userData: {
+        uuid: "N/A",
+        building: "Loading...",
+        reserve: false,
+      },
+      tab: null,
+      tabItems: [
+        { tab: "7/16", content: "Tab 1 Content" },
+        { tab: "7/17", content: "Tab 2 Content" },
+        { tab: "7/18", content: "Tab 3 Content" },
+        { tab: "7/19", content: "Tab 4 Content" },
+        { tab: "7/20", content: "Tab 5 Content" },
+        { tab: "7/21", content: "Tab 6 Content" },
+        { tab: "7/22", content: "Tab 7 Content" },
+      ],
+      saveStatusData: [],
+      statusData: [],
+      headers: [
+        { text: "日期 / Date", value: "date" },
+        { text: "時間 / Time", value: "time" },
+        { text: "目前人數 / Current People", value: "currentPeople" },
+        { text: "總人數 / Max People", value: "maxPeople" },
+        { text: "預約 / Reserve", value: "uuid" },
+      ],
+      parking: "N/A",
+      stu_id: "",
+      phone: "",
+      phoneRules: [(v) => (v && v.length === 9) || "請輸入電話正確格式"],
+      checkbox_law1: false,
+      checkbox_law2: false,
+      checkbox_law3: false,
+      checkbox_law_data: false,
+    };
+  },
+  components: {
+    About,
+  },
+  methods: {
+    reserveBtn(item) {
+      this.window_height = window.innerHeight;
+      this.window_width = window.innerWidth;
+      this.overlay = !this.overlay;
+      this.overlayData = item;
+      if (parseInt(item.uuid) <= 726) {
+        this.overlayCheckIn = "報到 Check-in | 8:30 - 15:00";
+        this.overlayCheck = "檢查 Checking | 13:00 - 15:30";
+      } else {
+        this.overlayCheckIn = "";
+        this.overlayCheck = "檢查 Checking | 9:00 - 15:30";
+      }
+    },
+    overlayOutside() {
+      this.overlay = false;
+    },
+    updateStatus() {
+      this.userData.reserve = false;
+      this.statusData = [
+        {
+          date: "Loading...",
+          time: "",
+          currentPeople: 0,
+          maxPeople: 0,
+          uuid: "N/A",
+          serve: false,
+        },
+      ];
+      let self = this;
+      axios
+        .post(config.apiurl + "/status", {
+          id: this.$cookie.get("id"),
+          session: this.$cookie.get("session"),
+        })
+        .then(function (response) {
+          console.log(response.data);
+          self.$cookie.set("session", response.data.session, 1);
+          self.initOverlay = false;
+          if (response.data.code === 200) {
+            if (response.data.message.admin === true) {
+              self.$router.push("admin");
+            }
+            if (response.data.message.health_status !== false) {
+              self.healthWrite = true;
+            }
+            if (response.data.message.record === false) {
+              self.saveStatusData = response.data.message.data;
+              self.userData.building = response.data.message.build;
+              self.userData.room = response.data.message.room;
+              self.userData.note = response.data.message.note;
+              self.userData.reserve = true;
+              self.changeStatusData();
+            } else {
+              self.userData.building =
+                "已經完成預約，請在 " +
+                response.data.message.data +
+                " 完成離宿工作！";
+              if (response.data.message.parking) {
+                self.userData.building += " (含停車折扣券)";
+              }
+            }
+          } else {
+            self.$cookie.set("session", response.data.session, 1);
+          }
+          if (response.data.code === 403) {
+            alert("You bad bad :(");
+            self.$router.push("/logout");
+          }
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    },
+    reserveSend(eventId) {
+      if (this.parking === "yes" || this.parking === "no") {
+        this.overlayLoading = true;
+        this.overlay = false;
+        this.userData.reserve = false;
+        let self = this;
+        axios
+          .post(config.apiurl + "/reserve", {
+            id: this.$cookie.get("id"),
+            session: this.$cookie.get("session"),
+            eventId: eventId,
+            parking: this.parking,
+          })
+          .then(function (response) {
+            self.overlayLoading = false;
+            self.$cookie.set("session", response.data.session, 1);
+            if (response.data.code === 200) {
+              if (response.data.message.check) {
+                self.userData.building =
+                  "已經完成預約，請在 " +
+                  self.overlayData.date +
+                  " " +
+                  self.overlayData.time +
+                  " 完成離宿工作！";
+              } else {
+                self.userData.reserve = true;
+                self.userData.building = "預約失敗，人數已滿或停止預約";
+                self.saveStatusData = response.data.message.data;
+                self.changeStatusData();
+              }
+            } else {
+              self.$cookie.set("session", response.data.session, 1);
+            }
+            if (response.data.code === 403) {
+              alert("You bad bad :(");
+              self.$router.push("/logout");
+            }
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      } else {
+        alert(
+          "請填寫是否需要申請停車折扣代碼券 / Please fill in whether need parking discount coupon"
+        );
+      }
+    },
+    healthBtn() {
+      if (this.phone === "" || this.phone.length !== 10) {
+        alert("請填寫正確十碼電話號碼！");
+      } else {
+        this.initOverlay = true;
+        let self = this;
+        axios
+          .post(config.apiurl + "/health", {
+            id: this.$cookie.get("id"),
+            session: this.$cookie.get("session"),
+            phone: this.phone,
+            law1: this.checkbox_law1,
+            law2: this.checkbox_law2,
+            law3: this.checkbox_law3,
+          })
+          .then(function (response) {
+            self.overlayLoading = false;
+            self.$cookie.set("session", response.data.session, 1);
+            self.initOverlay = false;
+            if (response.data.code === 403) {
+              alert("You bad bad :(");
+              self.$router.push("/logout");
+            }
+
+            location.reload();
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      }
+    },
+    chipGetColor(current, max) {
+      console.log("---");
+      let cu = parseInt(current);
+      let ma = parseInt(max);
+      var finalColor = "N/A";
+      if (cu >= ma) finalColor = "#FF4F4F";
+      else if (cu / ma <= 0.2) finalColor = "#4F9EFF";
+      else if (cu / ma > 0.2 && cu / ma <= 0.6) finalColor = "#9EB53E";
+      else if (cu / ma > 0.6) finalColor = "#FFAC4F";
+      console.log(finalColor);
+
+      finalColor = "color: " + finalColor;
+      return finalColor;
+    },
+    changeStatusData() {
+      const d = new Date();
+      let date_uuid = (d.getMonth() + 1) * 100 + d.getDate();
+      var tmp = [];
+      for (var status in this.saveStatusData) {
+        if (parseInt(this.saveStatusData[status]["uuid"]) >= date_uuid)
+          tmp.push(this.saveStatusData[status]);
+      }
+      this.statusData = tmp;
+    },
+  },
+  mounted: function () {
+    if (this.$cookie.get("session") && this.$cookie.get("id")) {
+      this.loginStatus = true;
+      this.stu_id = Base64.decode(this.$cookie.get("id"));
+      this.updateStatus();
+    }
+    this.window_height = window.innerHeight;
+    this.window_width = window.innerWidth;
+  },
+};
+</script>
