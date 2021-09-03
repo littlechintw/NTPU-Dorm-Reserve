@@ -1,4 +1,4 @@
-# ntpu-dorm-check-out
+# ntpu-dorm-check-in
 
 ## Project setup
 ```
