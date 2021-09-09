@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="0">
-    <v-container fluid>
+    <v-container v-show="!manage" fluid>
       <v-row>
         <v-col cols="12">
           <v-row
@@ -96,14 +96,15 @@
                       items-per-page="500"
                     >
                       <template v-slot:item.d="{ item }">
-                        <h3 style="color: #2b7a78">
-                          {{ item.d }}
-                        </h3>
+                        <h3 style="color: #2b7a78">{{ item.d }}</h3>
                       </template>
 
                       <template v-slot:item.p="{ item }">
-                        <h3 v-show="item.p === 'yes'" style="color: #2b7a78">
-                          ✔️
+                        <h3 v-show="item.p === 'n'" style="color: #2b7a78">
+                          ❌
+                        </h3>
+                        <h3 v-show="item.p !== 'n'" style="color: #2b7a78">
+                          {{ item.p }}
                         </h3>
                       </template>
                     </v-data-table>
@@ -118,6 +119,16 @@
             </v-card>
           </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
+        </v-col>
+      </v-row>
+    </v-container>
+
+    <v-container fluid>
+      <v-row>
+        <v-col cols="12">
+          <v-row align="center" justify="center" length>
+            <h1>樓長權限</h1>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -157,21 +168,10 @@ export default {
       },
       tab: null,
       tabItems: [
-        { tab: "7/16", content: "" },
-        { tab: "7/17", content: "" },
-        { tab: "7/18", content: "" },
-        { tab: "7/19", content: "" },
-        { tab: "7/20", content: "" },
-        { tab: "7/21", content: "" },
-        { tab: "7/22", content: "" },
-        { tab: "7/23", content: "" },
-        { tab: "7/25", content: "" },
-        { tab: "7/26", content: "" },
-        { tab: "7/27", content: "" },
-        { tab: "7/28", content: "" },
-        { tab: "7/29", content: "" },
-        { tab: "7/30", content: "" },
-        { tab: "7/31", content: "" },
+        { tab: "9/18", content: "" },
+        { tab: "9/19", content: "" },
+        { tab: "9/20", content: "" },
+        { tab: "9/21", content: "" },
       ],
       saveStatusData: [],
       statusData: [],
@@ -182,6 +182,7 @@ export default {
         { text: "停車券", value: "p" },
       ],
       downloadHref: "N/A",
+      manage: false,
     };
   },
   components: {},
@@ -224,6 +225,7 @@ export default {
             alert("Why you here?");
             self.$router.push("/");
           }
+          self.manage = response.data.message.master;
           if (response.data.code === 200) {
             self.saveStatusData = response.data.message.data;
             self.userData.loadDone = true;

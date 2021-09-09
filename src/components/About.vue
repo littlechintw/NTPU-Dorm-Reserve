@@ -7,7 +7,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h1 style="zoom: 1.3">北大宿舍開宿預約</h1>
+            <h1 style="zoom: 1.3">北大開宿預約</h1>
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
@@ -54,19 +54,19 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <h5 style="color: #ec3913">7 / 24 因應停電暫停受理</h5>
-          </v-row> -->
-          <v-row align="center" justify="center" length>
-            <br />
           </v-row>
           <v-row align="center" justify="center" length>
+            <br />
+          </v-row> -->
+          <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>7 / 27 ~ 7 / 31</h3>
+              <h3>9 / 18 ~ 9 / 21</h3>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4>檢查 Checking | 09:00 - 15:30</h4>
+                <h4 style="text-align: center">09:00 - 16:00</h4>
               </v-card>
             </v-col>
           </v-row>
