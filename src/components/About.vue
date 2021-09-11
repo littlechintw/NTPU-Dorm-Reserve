@@ -60,7 +60,7 @@
           </v-row> -->
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>9 / 18 ~ 9 / 21</h3>
+              <h3>9 / 18 ~ 9 / 30</h3>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>

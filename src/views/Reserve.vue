@@ -45,16 +45,20 @@
                     :disabled="item.maxPeople - item.currentPeople <= 0"
                   >
                     <template v-slot:label>
-                      <div
-                        :style="
-                          chipGetColor(item.currentPeople, item.maxPeople)
-                        "
-                      >
-                        {{ item.date }}
-                        <div style="width: 10px; display: inline-block" />
-                        {{ item.time }}
-                        <div style="width: 10px; display: inline-block" />
-                        本時段還可預約
+                      <div>
+                        <v-chip
+                          class="ma-2"
+                          :color="
+                            chipGetColor(item.currentPeople, item.maxPeople)
+                          "
+                        >
+                          {{ item.date }}
+                          <!-- <div style="width: 10px; display: inline-block" /> -->
+                        </v-chip>
+                        <!-- {{ item.time }} -->
+                        <div style="width: 3px; display: inline-block" />
+
+                        尚可預約
                         <div
                           style="
                             width: 20px;
@@ -62,11 +66,13 @@
                             text-align: center;
                           "
                         >
-                          {{ item.maxPeople - item.currentPeople }}
+                          <strong>
+                            {{ item.maxPeople - item.currentPeople }}
+                          </strong>
                         </div>
                         人
                       </div>
-                      <div style="height: 50px" />
+                      <div style="height: 30px" />
                     </template>
                   </v-radio>
                 </v-radio-group>
@@ -623,12 +629,12 @@ export default {
       let ma = parseInt(max);
       var finalColor = "N/A";
       if (cu >= ma) finalColor = "#FF4F4F";
-      else if (cu / ma <= 0.2) finalColor = "#4F9EFF";
-      else if (cu / ma > 0.2 && cu / ma <= 0.6) finalColor = "#9EB53E";
-      else if (cu / ma > 0.6) finalColor = "#FFAC4F";
+      else if (ma - cu > 10) finalColor = "#4F9EFF";
+      else if (ma - cu > 5 && ma - cu <= 10) finalColor = "#9EB53E";
+      else if (ma - cu <= 5) finalColor = "#FFAC4F";
+      console.log(ma - cu);
       console.log(finalColor);
 
-      finalColor = "color: " + finalColor;
       return finalColor;
     },
     changeStatusData() {
