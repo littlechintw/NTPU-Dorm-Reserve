@@ -37,6 +37,9 @@
             <v-card elevation="0">
               <v-card v-show="userData.reserve" elevation="0">
                 <h2 style="width: 100%; text-align: center">🔻時段選擇🔻</h2>
+                <h4 style="width: 100%; text-align: center; color: gray">
+                  Select time
+                </h4>
                 <v-radio-group v-model="reserveTime">
                   <v-radio
                     v-for="item in statusData"
@@ -81,9 +84,15 @@
                 <h2 style="width: 100%; text-align: center">
                   🔻是否需停車優惠券🔻
                 </h2>
-                <h4 style="width: 100%; text-align: center">
-                  優惠券僅限當日一次進出
+                <h4 style="width: 100%; text-align: center; color: gray">
+                  Parking Coupon
                 </h4>
+                <h4 style="width: 100%; text-align: center">
+                  優惠券限當日一次進出，且僅有一張
+                </h4>
+                <h5 style="width: 100%; text-align: center; color: gray">
+                  Just for one time parking at the check-in day!
+                </h5>
                 <v-radio-group v-model="carCoupon">
                   <v-radio value="y">
                     <template v-slot:label>
@@ -95,7 +104,7 @@
                     v-model="carId"
                     :rules="carIdRules"
                     :counter="8"
-                    label="車號"
+                    label="車號 / License plate number"
                     required
                     :disabled="carCoupon == 'n'"
                     style="padding-left: 30px"
@@ -211,15 +220,42 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
+            <h3>您的開宿時間 / Check-in time：</h3>
+          </v-row>
+          <v-row align="center" justify="center" length>
             <h3>
-              預約時間：
               <a style="color: #e76f51">{{ checkData.time }}</a>
             </h3>
           </v-row>
           <v-row align="center" justify="center" length>
+            <h3>停車券 / Parking Coupon：</h3>
+          </v-row>
+          <v-row align="center" justify="center" length>
             <h3>
-              停車券： <a style="color: #e76f51">{{ checkData.carData }}</a>
+              <a style="color: #e76f51">{{ checkData.carData }}</a>
             </h3>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+
+          <v-row align="center" justify="center" length>
+            <h4>
+              如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，且僅適用於開宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，宿舍訪客僅限一人。
+            </h4>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-btn
+              color="#87C1A2"
+              class="mr-4"
+              :href="checkData.visitorUrl"
+              target="_blank"
+            >
+              國立臺北大學訪客一日通行碼申請
+            </v-btn>
           </v-row>
         </v-col>
       </v-row>
@@ -493,6 +529,7 @@ export default {
               self.checkData.time = response.data.message.data;
               self.checkData.build = response.data.message.build;
               self.checkData.room = response.data.message.room;
+              self.checkData.visitorUrl = response.data.message.visitorUrl;
               if (response.data.message.parking !== "n") {
                 self.checkData.carData =
                   "需要（" + response.data.message.parking + "）";
@@ -596,14 +633,10 @@ export default {
           self.$cookie.set("session", response.data.session, 1);
           if (response.data.code === 200) {
             if (response.data.message.check) {
-              self.userData.building =
-                "已經完成預約，請在 " +
-                self.overlayData.date +
-                " " +
-                self.overlayData.time +
-                " 完成離宿工作！";
               self.reserveDone = true;
               self.qrcodeText = self.$cookie.get("id");
+
+              location.reload();
             } else {
               self.userData.reserve = true;
               self.userData.note = "預約失敗，人數已滿或停止預約";

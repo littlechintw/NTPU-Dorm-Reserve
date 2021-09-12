@@ -96,6 +96,11 @@
                 </h3>
               </template>
 
+              <template v-slot:item.c="{ item }">
+                <h3 v-show="item.c === 'n'" style="color: #2b7a78">❌</h3>
+                <h3 v-show="item.c !== 'n'" style="color: #2b7a78">✔️</h3>
+              </template>
+
               <template v-slot:item.de="{ item }">
                 <!-- <v-btn
                   dark
@@ -206,37 +211,231 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" width="344" elevation="0">
+              <v-row
+                align="center"
+                justify="center"
+                style="background-color: #e9c46a"
+                length
+              >
+                <h3>{{ checkInUserData.note }}</h3>
+              </v-row>
               <v-row align="center" justify="left" length>
+                <br />
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>學號： {{ checkInUserData.stuid }}</h3>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>姓名： {{ checkInUserData.name }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>棟別： {{ checkInUserData.build }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>房床號： {{ checkInUserData.detail }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
+              <!-- <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>續住： {{ checkInUserData.cont }}</h3>
+              </v-row> -->
+              <v-row
+                v-show="checkInUserData.reserve_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>應報到時間： {{ checkInUserData.date }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
-                <h3>報到時間： {{ checkInUserData.date }}</h3>
-              </v-row>
-              <v-row align="center" justify="left" length>
+              <v-row
+                v-show="checkInUserData.reserve_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>停車優惠券： {{ checkInUserData.parking }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>是否報到： {{ checkInUserData.checkin }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
-                <h3>臨時卡編號： {{ checkInUserData.cardid }}</h3>
-              </v-row>
-              <v-row align="center" justify="left" length>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
                 <h3>是否繳費： {{ checkInUserData.bill }}</h3>
               </v-row>
-              <v-row align="center" justify="left" length>
-                <h3>是否領取停車優惠券： {{ checkInUserData.coupon }}</h3>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>臨時卡編號： {{ checkInUserData.cardid }}</h3>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>是否領取停車券： {{ checkInUserData.coupon }}</h3>
               </v-row>
             </v-card>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row
+            v-show="checkInUserData.user_exist"
+            align="center"
+            justify="center"
+            length
+          >
+            <v-card class="mx-auto" width="344" elevation="0">
+              <v-divider />
+            </v-card>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-card class="mx-auto" width="344" elevation="0">
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <br />
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h4>繳費</h4>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="center"
+                length
+              >
+                <v-switch v-model="checkinBill">
+                  <template v-slot:label>
+                    <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
+                  </template>
+                </v-switch>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h4>臨時卡號碼</h4>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="center"
+                length
+              >
+                <div style="width: 200px">
+                  <v-text-field
+                    v-model="checkinCardId"
+                    label="臨時卡號碼"
+                    type="number"
+                    counter="4"
+                  >
+                  </v-text-field>
+                </div>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.parking !== '不需要'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h4>停車優惠券</h4>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.parking !== '不需要'
+                "
+                align="center"
+                justify="center"
+                length
+              >
+                <v-switch v-model="checkinCoupon">
+                  <template v-slot:label>
+                    <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
+                  </template>
+                </v-switch>
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <br />
+              </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <v-btn color="#87C1A2" class="mr-4" @click="masterCheckin">
+                  報到 / 更新資料
+                </v-btn>
+              </v-row>
+            </v-card>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
           </v-row>
         </v-col>
       </v-row>
@@ -295,6 +494,7 @@ export default {
         { text: "學號", value: "s" },
         { text: "棟別", value: "b" },
         { text: "停車券", value: "p" },
+        { text: "報到", value: "c" },
         { text: "刪除", value: "de" },
       ],
       downloadHref: "N/A",
@@ -313,7 +513,11 @@ export default {
         reserveTime: "N/A",
         reserve_exist: false,
         user_exist: false,
+        note: "",
       },
+      checkinBill: false,
+      checkinCardId: "",
+      checkinCoupon: false,
     };
   },
   components: {},
@@ -410,6 +614,10 @@ export default {
     },
     masterSearch() {
       this.initOverlay = true;
+      this.checkInUserData.note = "";
+      this.checkinBill = false;
+      this.checkinCardId = "";
+      this.checkinCoupon = false;
       let self = this;
       axios
         .post(config.apiurl + "/checkin_search", {
@@ -423,6 +631,8 @@ export default {
           if (response.data.code === 200) {
             // self.saveStatusData = response.data.message.data;
             self.checkInUserData = response.data.message.data;
+            self.checkInUserData.stuid = self.masterStuid;
+            self.masterStuid = "";
             self.initOverlay = false;
           } else {
             self.$cookie.set("session", response.data.session, 1);
@@ -435,6 +645,47 @@ export default {
         .catch(function (error) {
           alert(error);
         });
+    },
+    masterCheckin() {
+      // this.checkinBill = false;
+      // this.checkinCardId = "";
+      // this.checkinCoupon = false;
+      if (this.checkinCardId === "") {
+        alert("請填寫臨時卡號碼");
+      } else {
+        this.initOverlay = true;
+        this.userData.loadDone = false;
+        let self = this;
+        axios
+          .post(config.apiurl + "/checkin_edit", {
+            id: this.$cookie.get("id"),
+            session: this.$cookie.get("session"),
+            s: this.checkInUserData.stuid,
+            bill: this.checkinBill,
+            cardId: this.checkinCardId,
+            coupon: this.checkinCoupon,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            self.$cookie.set("session", response.data.session, 1);
+            self.csv();
+            if (response.data.code === 200) {
+              let tmp = self.checkInUserData.stuid;
+              self.checkInUserData = response.data.message.data;
+              self.checkInUserData.stuid = tmp;
+              self.initOverlay = false;
+            } else {
+              self.$cookie.set("session", response.data.session, 1);
+            }
+            if (response.data.code === 403) {
+              alert("You bad bad :(");
+              self.$router.push("/logout");
+            }
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      }
     },
     chipGetColor(current, max) {
       if (current >= max) return "#FF4F4F";
@@ -450,6 +701,10 @@ export default {
         }
       }
       this.statusData = tmp;
+    },
+    showTextBill(checkinBill) {
+      if (checkinBill) return "已經繳費";
+      else return "還沒繳費";
     },
     search() {
       var tmp = [];

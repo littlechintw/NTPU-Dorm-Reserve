@@ -66,13 +66,13 @@
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4 style="text-align: center">09:00 - 16:00</h4>
+                <h4 style="text-align: center">09:00 - 19:00</h4>
               </v-card>
             </v-col>
           </v-row>
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <h5 style="color: #ec3913">12:00 - 13:00 為人員休息時間</h5>
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
