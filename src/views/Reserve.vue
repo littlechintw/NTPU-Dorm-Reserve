@@ -93,7 +93,10 @@
                 <h5 style="width: 100%; text-align: center; color: gray">
                   Just for one time parking at the check-in day!
                 </h5>
-                <v-radio-group v-model="carCoupon">
+                <v-radio-group
+                  v-model="carCoupon"
+                  :disabled="userData.reserveStatus != 1"
+                >
                   <v-radio value="y">
                     <template v-slot:label>
                       <div>是，需要 / Yes</div>
@@ -122,6 +125,7 @@
                     class="white--text"
                     color="#2a9d8f"
                     @click="formCheckBtn"
+                    :disabled="userData.reserveStatus != 1"
                   >
                     確定 / Comfirm
                   </v-btn>
@@ -518,6 +522,7 @@ export default {
               self.saveStatusData = response.data.message.data;
               self.userData.building = response.data.message.build;
               self.userData.room = response.data.message.room;
+              self.userData.reserveStatus = response.data.message.reserveStatus;
               self.checkData.build = response.data.message.build;
               self.checkData.room = response.data.message.room;
               self.userData.note = response.data.message.note;
