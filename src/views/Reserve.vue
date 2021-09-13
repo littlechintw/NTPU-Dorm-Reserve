@@ -248,7 +248,10 @@
 
           <v-row align="center" justify="center" length>
             <h4>
-              如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，且僅適用於開宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，宿舍訪客僅限一人。
+              如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，如須申請兩人，請申請兩次，本通行碼僅適用於開宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，並請宿舍訪客攜帶<strong
+                style="color: #e76f51"
+                >身分證</strong
+              >，宿舍訪客僅限一人，且限制 30 分鐘。
             </h4>
           </v-row>
           <v-row align="center" justify="center" length>
@@ -263,6 +266,77 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h5 style="background-color: #e7b0a2">
+              (一)
+              養成每日量溫習慣，進出宿舍請以酒精消毒雙手，回到寢室請以肥皂洗手。Develop
+              the habit of measuring temperature every day, disinfect your hands
+              with alcohol when entering and leaving the dormitory, and wash
+              your hands with soap when returning to the room.
+            </h5>
+          </v-row>
+          <v-row
+            align="center"
+            justify="center"
+            length
+            style="background-color: #e7b0a2"
+          >
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h5 style="background-color: #e7b0a2">
+              (二)
+              配合宿舍門禁管控並落實實名制，請逐一刷卡進出宿舍(門打開的狀況一樣可以刷卡)。To
+              cooperate with the dormitory access control and implement the real
+              name system, please swipe your card to enter and leave the
+              dormitory one by one (The door is open as well as the condition of
+              the card can be swiped).
+            </h5>
+          </v-row>
+          <v-row
+            align="center"
+            justify="center"
+            length
+            style="background-color: #e7b0a2"
+          >
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h5 style="background-color: #e7b0a2">
+              (三) 離開房間進入公共空間請全程配戴口罩（包含使用廚房時）。Please
+              wear a mask when leaving the room (including when using the
+              kitchen).
+            </h5>
+          </v-row>
+          <v-row
+            align="center"
+            justify="center"
+            length
+            style="background-color: #e7b0a2"
+          >
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h5 style="background-color: #e7b0a2">
+              (四) 住宿期間如有身體不適症狀，如發燒 (額溫≧ 37.5℃、耳溫≧
+              38℃)、咳嗽、喉嚨痛、呼 吸道窘迫症狀
+              (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力等，請盡速就醫並務必通報本組(02-86716784)。If
+              you have any uncomfortable symptoms during your stay, such as
+              fever (forehead temperature > 37.5°C, ear temperature > 38°C),
+              cough, sore throat, respiratory distress (shortness of breath,
+              difficulty breathing), runny nose, muscle or joint pain, limb
+              weakness, etc., please seek medical attention as soon as possible
+              and tell Student Housing Section.
+            </h5>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h4>
+              請注意，取消預約將有可能喪失原先預約時段，請您慎重操作此功能。
+            </h4>
           </v-row>
           <v-row
             align="center"
@@ -314,13 +388,33 @@
 
           <div v-show="loginStatus">
             <v-row align="center" justify="center" length>
-              <h1>健康聲明</h1>
+              <h1>自我通報健康關懷表</h1>
             </v-row>
             <v-row align="center" justify="center" length>
+              <h2>Self Health Care Form</h2>
+            </v-row>
+            <!-- <v-row align="center" justify="center" length>
               <br />
               <v-chip class="ma-2" color="green" outlined>
                 北大宿舍開宿
               </v-chip>
+              <br />
+            </v-row> -->
+            <v-row align="center" justify="center" length>
+              <br />
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h3>
+                為因應新冠肺炎疫情，請填寫自我通報健康關懷表，並務必詳細閱讀注意事項。謝謝。
+              </h3>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h4>
+                Because of COVID-19 Pandemic, please fill in the following Self
+                Health Care Form and read the notes carefully. Thank you.
+              </h4>
+            </v-row>
+            <v-row align="center" justify="center" length>
               <br />
             </v-row>
             <v-row
@@ -352,28 +446,25 @@
                 <v-checkbox
                   v-model="checkbox_law1"
                   :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="本人非臺灣疾管署具感染風險民眾追蹤管理機制之對象
-                    (居家隔離/居家檢疫/自主健康管理)；另未與前述對象接觸或同居。"
+                  label="入住前 21 天自國外入境，但已完成 14 天居家檢疫，檢疫期滿經檢測通過，並完成 7 天自主健康管理，且沒有疑似症狀。I entered into Taiwan from overseas in the past 21 days and I have completed 14 days of ‘home quarantine’, passed the test and have also finished 7 days of Self-health Monitoring process without any abnormal symptoms."
                   required
                 ></v-checkbox>
                 <v-checkbox
                   v-model="checkbox_law2"
                   :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="本人未有疑似呼吸道不適症狀
-                    (咳嗽/流鼻水/鼻塞/喉嚨痛/呼吸喘)，且未發燒 (額溫 &lt;
-                    37.5°C、耳溫 &lt; 38°C)。"
+                  label="入住報到時，處於自主健康管理期間（境外生入境須完成 14 天居家檢疫及 7 天自主健康管理後始得進入校園）且未有症狀者。At the time of check-in, students who are in the Self-health Monitoring process (foreign students must complete 14 days of home quarantine and 7 days of Self-health Monitoring process before entering the campus) and who do not have symptoms."
                   required
                 ></v-checkbox>
                 <v-checkbox
                   v-model="checkbox_law3"
                   :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="本人於 9/03 ~ 9/21 未曾於臺灣境外、高風險地區活動或已經完成隔離等防疫作業"
+                  label="最近 14 天內是否出現以下症狀：發燒 (額溫 ≧ 37.5℃、耳溫 ≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀 (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力。Have you had the following symptom(s) in the past 14 days : Fever (forehead temperature≧ 37.5℃, ear temperature≧ 38 ℃), Cough, Sore throat, Short of Breath, Dyspnea, Running nose, Muscle soreness or Joint pain, General fatigue"
                   required
                 ></v-checkbox>
                 <v-checkbox
                   v-model="checkbox_law_data"
                   :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="本人已閱讀以下說明並願意提供資料，且以上所有資訊正確無誤。"
+                  label="本人如隱匿上述防疫事實，將自行承擔相關責任。I will shoulder the related responsibility if I conceal the above pandemic facts."
                   required
                 ></v-checkbox>
                 <div>
@@ -733,7 +824,7 @@ export default {
       let ma = parseInt(max);
       var finalColor = "N/A";
       if (cu >= ma) finalColor = "#FF4F4F";
-      else if (ma - cu > 10) finalColor = "#4F9EFF";
+      else if (ma - cu > 10) finalColor = "#65C4F4";
       else if (ma - cu > 5 && ma - cu <= 10) finalColor = "#9EB53E";
       else if (ma - cu <= 5) finalColor = "#FFAC4F";
       console.log(ma - cu);

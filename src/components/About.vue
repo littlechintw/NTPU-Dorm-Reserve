@@ -60,7 +60,7 @@
           </v-row> -->
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>9 / 18 ~ 9 / 30</h3>
+              <h3>9 / 18 ~ 9 / 26</h3>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
@@ -137,17 +137,53 @@
           <v-row align="center" justify="left" length>
             <h2>Q & A</h2>
           </v-row>
-          <v-row align="center" justify="left" length>
-            <h4 style="color: gray">Q & A</h4>
-          </v-row>
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q1. Example</h4>
+            <h4>Q1. 我可以用多個裝置一起搶時段嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h5 style="color: gray">Ans. Example</h5>
+            <h5 style="color: gray">
+              Ans.
+              由於系統限制，每個帳號將限制僅有一台裝置可以操作，如果使用多台裝置，將有可能受到干擾。
+            </h5>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q2. 預約錯了或是想要取消怎麼辦？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans.
+              在預約完成後，確認頁面有取消預約按鈕，按照步驟操作即可重新預約。
+            </h5>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q3. 系統建議延後報到怎麼辦？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans.
+              由於疫情關係，未符合自我通報健康關懷表相關選項的使用者將會出現此警告，您可以繼續預約，但建議延後報到，待狀況解除後，再另行報到入住。
+            </h5>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q4. 訪客可以進入宿舍嗎？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans. 由於疫情關係，目前限制進入宿舍訪客為 1 人，且訪客時間限制 30
+              分鐘，請於開宿當天協同訪客攜帶身分證至各棟櫃檯辦理訪客！
+            </h5>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q5. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans. 由於疫情關係，目前限制僅能於開宿當天進入校園，訪客上限為 2
+              人，且必須申請國立臺北大學訪客一日通行，建議可以先行預約完畢，並點擊預約完成頁面下方的申請一日通行相關按鈕進行申請！
+            </h5>
           </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />

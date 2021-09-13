@@ -116,7 +116,7 @@ export default {
             } else {
               self.$cookie.set("session", response.data.session, 1);
               self.$cookie.set("id", response.data.message.id, 1);
-              self.$router.push("/health");
+              self.$router.push("/reserve");
               location.reload();
             }
           })

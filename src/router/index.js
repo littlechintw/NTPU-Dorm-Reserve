@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: '北大宿舍離宿預約',
+      title: '北大宿舍開宿預約',
     },
   },
   {
@@ -17,23 +17,23 @@ const routes = [
     name: 'Reserve',
     component: () => import('../views/Reserve.vue'),
     meta: {
-      title: '預約 | 北大宿舍離宿預約',
+      title: '預約 | 北大宿舍開宿預約',
     },
   },
-  {
-    path: '/health',
-    name: 'Health',
-    component: () => import('../views/Health.vue'),
-    meta: {
-      title: '健康聲明填寫 | 北大宿舍離宿預約',
-    },
-  },
+  // {
+  //   path: '/health',
+  //   name: 'Health',
+  //   component: () => import('../views/Health.vue'),
+  //   meta: {
+  //     title: '健康聲明填寫 | 北大宿舍開宿預約',
+  //   },
+  // },
   {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue'),
     meta: {
-      title: 'Login | 北大宿舍離宿預約',
+      title: 'Login | 北大宿舍開宿預約',
     },
   },
   {
@@ -41,7 +41,7 @@ const routes = [
     name: 'Logout',
     component: () => import('../views/Logout.vue'),
     meta: {
-      title: 'Logout | 北大宿舍離宿預約',
+      title: 'Logout | 北大宿舍開宿預約',
     },
   },
   {
@@ -49,7 +49,7 @@ const routes = [
     name: 'Admin',
     component: () => import('../views/Admin.vue'),
     meta: {
-      title: 'Admin | 北大宿舍離宿預約',
+      title: 'Admin | 北大宿舍開宿預約',
     },
   },
 

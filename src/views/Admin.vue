@@ -419,7 +419,7 @@
                 justify="left"
                 length
               >
-                <h4>臨時卡號碼</h4>
+                <h4>臨時卡號碼 (沒有請填 0)</h4>
               </v-row>
               <v-row
                 v-show="checkInUserData.user_exist"
