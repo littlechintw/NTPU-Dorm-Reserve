@@ -310,6 +310,58 @@
               >
                 <h3>是否領取停車券： {{ checkInUserData.coupon }}</h3>
               </v-row>
+              <v-row
+                v-show="checkInUserData.user_exist"
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>是否有訪客： {{ checkInUserData.visitor }}</h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor == 'True'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>訪客身分證： {{ checkInUserData.visitorId }}</h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor == 'True'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>訪客電話： {{ checkInUserData.visitorPhone }}</h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor == 'True'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>訪客開始時間： {{ checkInUserData.visitorStart }}</h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor == 'True'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h3>訪客結束時間： {{ checkInUserData.visitorEnd }}</h3>
+              </v-row>
             </v-card>
           </v-row>
           <v-row align="center" justify="center" length>
@@ -410,6 +462,63 @@
                     <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
                   </template>
                 </v-switch>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor != 'True'
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h4>訪客</h4>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.visitor != 'True'
+                "
+                align="center"
+                justify="center"
+                length
+              >
+                <v-switch v-model="checkinVisitor">
+                  <template v-slot:label>
+                    <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
+                  </template>
+                </v-switch>
+              </v-row>
+              <v-row
+                v-show="checkinVisitor && checkInUserData.visitor != 'True'"
+                align="center"
+                justify="center"
+                length
+              >
+                <div style="width: 200px">
+                  <v-text-field
+                    v-model="checkinVisitorId"
+                    label="訪客身分證"
+                    counter="10"
+                  >
+                  </v-text-field>
+                </div>
+              </v-row>
+              <v-row
+                v-show="checkinVisitor && checkInUserData.visitor != 'True'"
+                align="center"
+                justify="center"
+                length
+              >
+                <div style="width: 200px">
+                  <v-text-field
+                    v-model="checkinVisitorPhone"
+                    label="訪客電話"
+                    type="number"
+                    counter="10"
+                  >
+                  </v-text-field>
+                </div>
               </v-row>
               <v-row
                 v-show="checkInUserData.user_exist"
@@ -519,6 +628,9 @@ export default {
       checkinBill: false,
       checkinCardId: "",
       checkinCoupon: false,
+      checkinVisitor: false,
+      checkinVisitorId: "",
+      checkinVisitorPhone: "",
     };
   },
   components: {},
@@ -617,23 +729,59 @@ export default {
       if (this.masterStuid.length === 12) {
         this.masterStuid = Base64.decode(this.masterStuid);
       }
+      if (this.masterStuid.length === 10) {
+        this.visitor_end();
+      } else {
+        this.initOverlay = true;
+        this.checkInUserData.note = "";
+        this.checkinBill = false;
+        this.checkinCardId = "";
+        this.checkinCoupon = false;
+        this.checkinVisitor = false;
+        this.checkinVisitorId = "";
+        this.checkinVisitorPhone = "";
+        let self = this;
+        axios
+          .post(config.apiurl + "/checkin_search", {
+            id: this.$cookie.get("id"),
+            session: this.$cookie.get("session"),
+            s: this.masterStuid,
+          })
+          .then(function (response) {
+            console.log(response.data);
+            self.$cookie.set("session", response.data.session, 1);
+            if (response.data.code === 200) {
+              // self.saveStatusData = response.data.message.data;
+              self.checkInUserData = response.data.message.data;
+              self.checkInUserData.stuid = self.masterStuid;
+              self.masterStuid = "";
+              self.initOverlay = false;
+            } else {
+              self.$cookie.set("session", response.data.session, 1);
+            }
+            if (response.data.code === 403) {
+              alert("You bad bad :(");
+              self.$router.push("/logout");
+            }
+          })
+          .catch(function (error) {
+            alert(error);
+          });
+      }
+    },
+    visitor_end() {
       this.initOverlay = true;
-      this.checkInUserData.note = "";
-      this.checkinBill = false;
-      this.checkinCardId = "";
-      this.checkinCoupon = false;
       let self = this;
       axios
-        .post(config.apiurl + "/checkin_search", {
+        .post(config.apiurl + "/checkin_visitor_end", {
           id: this.$cookie.get("id"),
           session: this.$cookie.get("session"),
-          s: this.masterStuid,
+          visitorId: this.masterStuid,
         })
         .then(function (response) {
           console.log(response.data);
           self.$cookie.set("session", response.data.session, 1);
           if (response.data.code === 200) {
-            // self.saveStatusData = response.data.message.data;
             self.checkInUserData = response.data.message.data;
             self.checkInUserData.stuid = self.masterStuid;
             self.masterStuid = "";
@@ -656,6 +804,14 @@ export default {
       // this.checkinCoupon = false;
       if (this.checkinCardId === "") {
         alert("請填寫臨時卡號碼");
+      } else if (
+        this.checkinVisitor &&
+        (this.checkinVisitorId === "" ||
+          this.checkinVisitorPhone === "" ||
+          this.checkinVisitorId.length != 10 ||
+          this.checkinVisitorPhone.length != 10)
+      ) {
+        alert("請填寫正確訪客資訊");
       } else {
         this.initOverlay = true;
         this.userData.loadDone = false;
@@ -668,6 +824,9 @@ export default {
             bill: this.checkinBill,
             cardId: this.checkinCardId,
             coupon: this.checkinCoupon,
+            visitor: this.checkinVisitor,
+            visitorId: this.checkinVisitorId,
+            visitorPhone: this.checkinVisitorPhone,
           })
           .then(function (response) {
             console.log(response.data);

@@ -261,6 +261,44 @@
               國立臺北大學訪客一日通行碼申請
             </v-btn>
           </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row
+            align="center"
+            justify="center"
+            length
+            v-show="!checkData.checkin"
+          >
+            <v-menu offset-y>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  outlined
+                  color="#B5563E"
+                  class="mr-4"
+                  v-bind="attrs"
+                  v-on="on"
+                >
+                  取消預約 / Cancel reserve
+                </v-btn>
+              </template>
+              <v-list>
+                <v-list-item @click="recordDelete()">
+                  <v-list-item-title>
+                    按下這個按鈕即取消 / Sure?
+                  </v-list-item-title>
+                </v-list-item>
+              </v-list>
+            </v-menu>
+          </v-row>
+          <v-row
+            align="center"
+            justify="center"
+            length
+            v-show="checkData.checkin"
+          >
+            <h1>已經完成報到</h1>
+          </v-row>
         </v-col>
       </v-row>
     </v-container>
@@ -534,6 +572,8 @@ export default {
               self.checkData.time = response.data.message.data;
               self.checkData.build = response.data.message.build;
               self.checkData.room = response.data.message.room;
+              self.checkData.date = response.data.message.date;
+              self.checkData.checkin = response.data.message.checkin;
               self.checkData.visitorUrl = response.data.message.visitorUrl;
               if (response.data.message.parking !== "n") {
                 self.checkData.carData =
@@ -551,6 +591,32 @@ export default {
             }
           } else {
             self.$cookie.set("session", response.data.session, 1);
+          }
+          if (response.data.code === 403) {
+            alert("You bad bad :(");
+            self.$router.push("/logout");
+          }
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    },
+    recordDelete() {
+      this.initOverlay = true;
+      let self = this;
+      axios
+        .post(config.apiurl + "/user_delete", {
+          id: this.$cookie.get("id"),
+          session: this.$cookie.get("session"),
+          d: this.checkData.date,
+        })
+        .then(function (response) {
+          console.log(response.data);
+          self.$cookie.set("session", response.data.session, 1);
+          self.initOverlay = false;
+          if (response.data.code === 200) {
+            self.initOverlay = false;
+            location.reload();
           }
           if (response.data.code === 403) {
             alert("You bad bad :(");

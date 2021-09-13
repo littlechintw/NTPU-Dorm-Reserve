@@ -16,10 +16,10 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h3 style="color: #4c4c6d">9 月 16 日 上午 9 時開放預約</h3>
+            <h3 style="color: #4c4c6d">9 月 16 日 下午 1 時開放預約</h3>
           </v-row>
           <v-row align="center" justify="center" length>
-            <h4 style="color: gray">Start at 9 am, Sep 16</h4>
+            <h4 style="color: gray">Start at 1 pm, Sep 16</h4>
           </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
