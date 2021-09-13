@@ -190,7 +190,7 @@
             <v-form
               ref="form"
               v-model="valid"
-              v-on:submit.prevent="search"
+              v-on:submit.prevent="masterSearch"
               lazy-validation
             >
               <v-text-field
@@ -450,6 +450,7 @@
 <script>
 const axios = require("axios");
 var config = require("../../config.json");
+let Base64 = require("js-base64").Base64;
 
 export default {
   name: "Home",
@@ -613,6 +614,9 @@ export default {
         });
     },
     masterSearch() {
+      if (this.masterStuid.length === 12) {
+        this.masterStuid = Base64.decode(this.masterStuid);
+      }
       this.initOverlay = true;
       this.checkInUserData.note = "";
       this.checkinBill = false;
