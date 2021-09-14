@@ -66,7 +66,7 @@
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4 style="text-align: center">09:00 - 19:00</h4>
+                <h4 style="text-align: center">09:00 - 16:00</h4>
               </v-card>
             </v-col>
           </v-row>
