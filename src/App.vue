@@ -29,11 +29,11 @@
             Login as {{ account }}
           </v-alert>
         </v-card>
-        <!-- <v-card>
+        <v-card>
           <v-alert type="warning" dense text dismissible>
-            預約系統已經關閉
+            由於名單尚未匯入，登入將會出現未授權提示！
           </v-alert>
-        </v-card> -->
+        </v-card>
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
           <router-view />
         </div>
