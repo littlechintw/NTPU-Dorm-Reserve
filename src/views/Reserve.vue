@@ -199,7 +199,7 @@
                       <br />
                     </v-row>
                     <v-row align="center" justify="center" length>
-                      <h4>開宿專用 QRCode</h4>
+                      <h4>開宿專用 QRcode</h4>
                     </v-row>
                   </v-col>
                 </v-row>
@@ -243,6 +243,35 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
+            <v-divider />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h4>
+              報到時，請準備此頁面的 QRcode
+              以及繳費證明供工作人員掃描與核對，您可以截圖並儲存於行動裝置，或是現場打開本網頁。
+            </h4>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-btn
+              color="#264653"
+              class="mr-4"
+              href="https://eschool.landbank.com.tw/student_login.aspx"
+              target="_blank"
+              outlined
+            >
+              土銀代收學雜費學生專區
+            </v-btn>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-divider />
+          </v-row>
+          <v-row align="center" justify="center" length>
             <br />
           </v-row>
 
@@ -256,13 +285,20 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <v-btn
-              color="#87C1A2"
+              color="#264653"
               class="mr-4"
               :href="checkData.visitorUrl"
               target="_blank"
+              outlined
             >
               國立臺北大學訪客一日通行碼申請
             </v-btn>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-divider />
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
@@ -329,6 +365,12 @@
               weakness, etc., please seek medical attention as soon as possible
               and tell Student Housing Section.
             </h5>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-divider />
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
