@@ -31,7 +31,7 @@
         </v-card>
         <v-card>
           <v-alert type="warning" dense text dismissible>
-            由於名單尚未匯入，登入將會出現未授權提示！
+            為維護後端主機，將暫時停止運作！
           </v-alert>
         </v-card>
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
