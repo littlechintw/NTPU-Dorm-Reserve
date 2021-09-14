@@ -55,10 +55,10 @@
                             chipGetColor(item.currentPeople, item.maxPeople)
                           "
                         >
-                          {{ item.date }}
+                          <strong>{{ item.date }} {{ item.time }}</strong>
                           <!-- <div style="width: 10px; display: inline-block" /> -->
                         </v-chip>
-                        <!-- {{ item.time }} -->
+
                         <div style="width: 3px; display: inline-block" />
 
                         尚可預約
@@ -834,7 +834,15 @@ export default {
     },
     changeStatusData() {
       const d = new Date();
-      let date_uuid = (d.getMonth() + 1) * 100 + d.getDate();
+      var date_uuid = (d.getMonth() + 1) * 1000 + d.getDate() * 10;
+      if (d.getHours() <= 12) {
+        date_uuid += 1;
+      } else if (d.getHours() > 12 && d.getHours() <= 14) {
+        date_uuid += 2;
+      } else {
+        date_uuid += 3;
+      }
+
       var tmp = [];
       for (var status in this.saveStatusData) {
         if (parseInt(this.saveStatusData[status]["uuid"]) >= date_uuid)

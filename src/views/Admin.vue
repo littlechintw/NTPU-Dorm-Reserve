@@ -101,6 +101,11 @@
                 <h3 v-show="item.c !== 'n'" style="color: #2b7a78">✔️</h3>
               </template>
 
+              <template v-slot:item.vi="{ item }">
+                <h3 v-show="item.vi === 'False'" style="color: #2b7a78">❌</h3>
+                <h3 v-show="item.vi !== 'False'" style="color: #2b7a78">✔️</h3>
+              </template>
+
               <template v-slot:item.de="{ item }">
                 <!-- <v-btn
                   dark
@@ -316,12 +321,12 @@
                 justify="left"
                 length
               >
-                <h3>是否有訪客： {{ checkInUserData.visitor }}</h3>
+                <h3>目前訪客是否還在宿舍： {{ checkInUserData.visitor }}</h3>
               </v-row>
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor == 'True'
+                  checkInUserData.visitorId !== 'None'
                 "
                 align="center"
                 justify="left"
@@ -332,7 +337,7 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor == 'True'
+                  checkInUserData.visitorId !== 'None'
                 "
                 align="center"
                 justify="left"
@@ -343,7 +348,7 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor == 'True'
+                  checkInUserData.visitorId !== 'None'
                 "
                 align="center"
                 justify="left"
@@ -354,7 +359,7 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor == 'True'
+                  checkInUserData.visitorId !== 'None'
                 "
                 align="center"
                 justify="left"
@@ -466,7 +471,7 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor != 'True'
+                  checkInUserData.visitorId === 'None'
                 "
                 align="center"
                 justify="left"
@@ -477,7 +482,7 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitor != 'True'
+                  checkInUserData.visitorId === 'None'
                 "
                 align="center"
                 justify="center"
@@ -490,7 +495,11 @@
                 </v-switch>
               </v-row>
               <v-row
-                v-show="checkinVisitor && checkInUserData.visitor != 'True'"
+                v-show="
+                  checkinVisitor &&
+                  checkInUserData.visitor != 'True' &&
+                  checkInUserData.visitorId === 'None'
+                "
                 align="center"
                 justify="center"
                 length
@@ -505,7 +514,11 @@
                 </div>
               </v-row>
               <v-row
-                v-show="checkinVisitor && checkInUserData.visitor != 'True'"
+                v-show="
+                  checkinVisitor &&
+                  checkInUserData.visitor != 'True' &&
+                  checkInUserData.visitorId === 'None'
+                "
                 align="center"
                 justify="center"
                 length
@@ -605,6 +618,8 @@ export default {
         { text: "棟別", value: "b" },
         { text: "停車券", value: "p" },
         { text: "報到", value: "c" },
+        { text: "訪客是否在宿舍", value: "vi" },
+        { text: "訪客開始時間", value: "vs" },
         { text: "刪除", value: "de" },
       ],
       downloadHref: "N/A",
@@ -630,7 +645,7 @@ export default {
       checkinCoupon: false,
       checkinVisitor: false,
       checkinVisitorId: "",
-      checkinVisitorPhone: "",
+      checkinVisitorPhone: "09",
     };
   },
   components: {},
@@ -739,7 +754,7 @@ export default {
         this.checkinCoupon = false;
         this.checkinVisitor = false;
         this.checkinVisitorId = "";
-        this.checkinVisitorPhone = "";
+        this.checkinVisitorPhone = "09";
         let self = this;
         axios
           .post(config.apiurl + "/checkin_search", {
