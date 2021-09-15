@@ -391,7 +391,10 @@
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" width="344" elevation="0">
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="left"
                 length
@@ -399,7 +402,10 @@
                 <br />
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="left"
                 length
@@ -407,7 +413,10 @@
                 <h4>繳費</h4>
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="center"
                 length
@@ -419,7 +428,10 @@
                 </v-switch>
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="left"
                 length
@@ -427,7 +439,10 @@
                 <h4>臨時卡號碼 (沒有請填 0)</h4>
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="center"
                 length
@@ -445,7 +460,8 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.parking !== '不需要'
+                  checkInUserData.parking !== '不需要' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="left"
@@ -456,7 +472,8 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.parking !== '不需要'
+                  checkInUserData.parking !== '不需要' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="center"
@@ -471,7 +488,8 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitorId === 'None'
+                  checkInUserData.visitorId === 'None' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="left"
@@ -482,7 +500,8 @@
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
-                  checkInUserData.visitorId === 'None'
+                  checkInUserData.visitorId === 'None' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="center"
@@ -498,7 +517,8 @@
                 v-show="
                   checkinVisitor &&
                   checkInUserData.visitor != 'True' &&
-                  checkInUserData.visitorId === 'None'
+                  checkInUserData.visitorId === 'None' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="center"
@@ -517,7 +537,8 @@
                 v-show="
                   checkinVisitor &&
                   checkInUserData.visitor != 'True' &&
-                  checkInUserData.visitorId === 'None'
+                  checkInUserData.visitorId === 'None' &&
+                  checkInUserData.stuid.length === 9
                 "
                 align="center"
                 justify="center"
@@ -534,7 +555,10 @@
                 </div>
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="left"
                 length
@@ -542,7 +566,10 @@
                 <br />
               </v-row>
               <v-row
-                v-show="checkInUserData.user_exist"
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
                 align="center"
                 justify="left"
                 length
