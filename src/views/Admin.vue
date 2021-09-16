@@ -98,7 +98,7 @@
 
               <template v-slot:item.h="{ item }">
                 <h3 v-show="item.h === '0'" style="color: #2b7a78">❌</h3>
-                <h3 v-show="item.h !== '1'" style="color: #2b7a78">✔️</h3>
+                <h3 v-show="item.h !== '0'" style="color: #2b7a78">✔️</h3>
               </template>
 
               <template v-slot:item.c="{ item }">
