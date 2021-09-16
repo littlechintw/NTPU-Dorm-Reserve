@@ -185,6 +185,15 @@
               人，且必須申請國立臺北大學訪客一日通行，建議可以先行預約完畢，並點擊預約完成頁面下方的申請一日通行相關按鈕進行申請！
             </h5>
           </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q6. 出現帳號未授權訊息怎麼辦？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans.
+              可以再次確認是否輸入正確的學號，或是確認自己是否有三峽校區床位！
+            </h5>
+          </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
           </v-row>
