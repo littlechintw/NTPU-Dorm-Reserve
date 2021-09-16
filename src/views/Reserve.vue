@@ -487,20 +487,17 @@
                 ></v-text-field>
                 <v-checkbox
                   v-model="checkbox_law1"
-                  :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="入住前 21 天自國外入境，但已完成 14 天居家檢疫，檢疫期滿經檢測通過，並完成 7 天自主健康管理，且沒有疑似症狀。I entered into Taiwan from overseas in the past 21 days and I have completed 14 days of ‘home quarantine’, passed the test and have also finished 7 days of Self-health Monitoring process without any abnormal symptoms."
+                  label="1. 入住前 21 天自國外入境，但已完成 14 天居家檢疫，檢疫期滿經檢測通過，並完成 7 天自主健康管理，且沒有疑似症狀。I entered into Taiwan from overseas in the past 21 days and I have completed 14 days of ‘home quarantine’, passed the test and have also finished 7 days of Self-health Monitoring process without any abnormal symptoms."
                   required
                 ></v-checkbox>
                 <v-checkbox
                   v-model="checkbox_law2"
-                  :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="入住報到時，處於自主健康管理期間（境外生入境須完成 14 天居家檢疫及 7 天自主健康管理後始得進入校園）且未有症狀者。At the time of check-in, students who are in the Self-health Monitoring process (foreign students must complete 14 days of home quarantine and 7 days of Self-health Monitoring process before entering the campus) and who do not have symptoms."
+                  label="2. 入住報到時，處於自主健康管理期間（境外生入境須完成 14 天居家檢疫及 7 天自主健康管理後始得進入校園）且未有症狀者。At the time of check-in, students who are in the Self-health Monitoring process (foreign students must complete 14 days of home quarantine and 7 days of Self-health Monitoring process before entering the campus) and who do not have symptoms."
                   required
                 ></v-checkbox>
                 <v-checkbox
                   v-model="checkbox_law3"
-                  :rules="[(v) => !!v || 'You must agree to continue!']"
-                  label="最近 14 天內是否出現以下症狀：發燒 (額溫 ≧ 37.5℃、耳溫 ≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀 (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力。Have you had the following symptom(s) in the past 14 days : Fever (forehead temperature≧ 37.5℃, ear temperature≧ 38 ℃), Cough, Sore throat, Short of Breath, Dyspnea, Running nose, Muscle soreness or Joint pain, General fatigue"
+                  label="3. 最近 14 天內是否出現以下症狀：發燒 (額溫 ≧ 37.5℃、耳溫 ≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀 (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力。Have you had the following symptom(s) in the past 14 days : Fever (forehead temperature≧ 37.5℃, ear temperature≧ 38 ℃), Cough, Sore throat, Short of Breath, Dyspnea, Running nose, Muscle soreness or Joint pain, General fatigue"
                   required
                 ></v-checkbox>
                 <v-divider />
