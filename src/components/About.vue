@@ -194,6 +194,15 @@
               可以再次確認是否輸入正確的學號，或是確認自己是否有三峽校區床位！
             </h5>
           </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q7. 為何會出現你壞壞的訊息？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans.
+              可能為操作速度過快、重複請求、或正在嘗試入侵，於收到此訊息後，將會導至登出頁面，僅需再登入一次，即可繼續操作。
+            </h5>
+          </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
           </v-row>
