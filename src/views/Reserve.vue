@@ -503,12 +503,17 @@
                   label="最近 14 天內是否出現以下症狀：發燒 (額溫 ≧ 37.5℃、耳溫 ≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀 (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力。Have you had the following symptom(s) in the past 14 days : Fever (forehead temperature≧ 37.5℃, ear temperature≧ 38 ℃), Cough, Sore throat, Short of Breath, Dyspnea, Running nose, Muscle soreness or Joint pain, General fatigue"
                   required
                 ></v-checkbox>
+                <v-divider />
                 <v-checkbox
                   v-model="checkbox_law_data"
                   :rules="[(v) => !!v || 'You must agree to continue!']"
                   label="本人如隱匿上述防疫事實，將自行承擔相關責任。I will shoulder the related responsibility if I conceal the above pandemic facts."
                   required
                 ></v-checkbox>
+                <h5 style="background-color: #e9c46a">
+                  請仔細審閱上述資料再送出 Please check the form above
+                  carefully!
+                </h5>
                 <div>
                   <v-btn
                     :disabled="!checkbox_law_data"
