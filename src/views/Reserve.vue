@@ -511,6 +511,7 @@
                   請仔細審閱上述資料再送出 Please check the form above
                   carefully!
                 </h5>
+                <br />
                 <div>
                   <v-btn
                     :disabled="!checkbox_law_data"
