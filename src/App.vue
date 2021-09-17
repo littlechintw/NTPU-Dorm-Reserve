@@ -29,11 +29,11 @@
             Login as {{ account }}
           </v-alert>
         </v-card>
-        <v-card>
+        <!--<v-card>
           <v-alert type="warning" dense text dismissible>
             目前刪除功能異常，正在修復中！
           </v-alert>
-        </v-card>
+        </v-card>-->
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
           <router-view />
         </div>
