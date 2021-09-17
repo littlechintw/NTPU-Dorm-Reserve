@@ -31,7 +31,7 @@
         </v-card>
         <v-card>
           <v-alert type="warning" dense text dismissible>
-            名單已經匯入，如仍出現授權問題，請至首頁最下方查找住宿輔導組聯絡人資訊，並告知此事件！
+            目前刪除功能異常，正在修復中！
           </v-alert>
         </v-card>
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
