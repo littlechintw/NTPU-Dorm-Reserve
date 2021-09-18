@@ -679,6 +679,7 @@ export default {
       checkinVisitor: false,
       checkinVisitorId: "",
       checkinVisitorPhone: "09",
+      searchLoading: false,
     };
   },
   components: {},
@@ -774,66 +775,73 @@ export default {
         });
     },
     masterSearch() {
-      if (this.masterStuid.length === 12) {
-        this.masterStuid = Base64.decode(this.masterStuid);
-      }
-      if (this.masterStuid.length === 10) {
-        this.visitor_end();
-      } else {
-        this.initOverlay = true;
-        this.checkInUserData.note = "";
-        this.checkinBill = false;
-        this.checkinCardId = "";
-        this.checkinCoupon = false;
-        this.checkinVisitor = false;
-        this.checkinVisitorId = "";
-        this.checkinVisitorPhone = "09";
-        let self = this;
-        axios
-          .post(config.apiurl + "/checkin_search", {
-            id: this.$cookie.get("id"),
-            session: this.$cookie.get("session"),
-            s: this.masterStuid,
-          })
-          .then(function (response) {
-            console.log(response.data);
-            self.$cookie.set("session", response.data.session, 1);
-            if (response.data.code === 200) {
-              // self.saveStatusData = response.data.message.data;
-              self.checkInUserData = response.data.message.data;
-              self.checkInUserData.stuid = self.masterStuid;
-              self.masterStuid = "";
-              self.initOverlay = false;
-            } else {
+      let stuid_this = this.masterStuid;
+      if (!this.searchLoading && stuid_this.length <= 12) {
+        self.searchLoading = true;
+        if (this.masterStuid.length === 12) {
+          this.masterStuid = Base64.decode(this.masterStuid);
+        }
+        if (this.masterStuid.length === 10) {
+          this.visitor_end();
+        } else {
+          this.initOverlay = true;
+          this.checkInUserData.note = "";
+          this.checkinBill = false;
+          this.checkinCardId = "";
+          this.checkinCoupon = false;
+          this.checkinVisitor = false;
+          this.checkinVisitorId = "";
+          this.checkinVisitorPhone = "09";
+          let self = this;
+          axios
+            .post(config.apiurl + "/checkin_search", {
+              id: this.$cookie.get("id"),
+              session: this.$cookie.get("session"),
+              s: stuid_this,
+            })
+            .then(function (response) {
+              console.log(response.data);
               self.$cookie.set("session", response.data.session, 1);
-            }
-            if (response.data.code === 403) {
-              alert("You bad bad :(");
-              self.$router.push("/logout");
-            }
-          })
-          .catch(function (error) {
-            alert(error);
-          });
+              if (response.data.code === 200) {
+                // self.saveStatusData = response.data.message.data;
+                self.checkInUserData = response.data.message.data;
+                self.checkInUserData.stuid = stuid_this;
+                self.masterStuid = "";
+                self.initOverlay = false;
+                self.searchLoading = false;
+              } else {
+                self.$cookie.set("session", response.data.session, 1);
+              }
+              if (response.data.code === 403) {
+                alert("You bad bad :(");
+                self.$router.push("/logout");
+              }
+            })
+            .catch(function (error) {
+              alert(error);
+            });
+        }
       }
     },
     visitor_end() {
+      let stuid_this = this.masterStuid;
       this.initOverlay = true;
       let self = this;
       axios
         .post(config.apiurl + "/checkin_visitor_end", {
           id: this.$cookie.get("id"),
           session: this.$cookie.get("session"),
-          visitorId: this.masterStuid,
+          visitorId: stuid_this,
         })
         .then(function (response) {
           console.log(response.data);
           self.$cookie.set("session", response.data.session, 1);
           if (response.data.code === 200) {
             self.checkInUserData = response.data.message.data;
-            self.checkInUserData.stuid = self.masterStuid;
+            self.checkInUserData.stuid = stuid_this;
             self.masterStuid = "";
             self.initOverlay = false;
+            self.searchLoading = false;
           } else {
             self.$cookie.set("session", response.data.session, 1);
           }
