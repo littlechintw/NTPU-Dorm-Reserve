@@ -775,11 +775,11 @@ export default {
         });
     },
     masterSearch() {
-      let stuid_this = this.masterStuid;
+      var stuid_this = this.masterStuid;
       if (!this.searchLoading && stuid_this.length <= 12) {
         self.searchLoading = true;
         if (this.masterStuid.length === 12) {
-          this.masterStuid = Base64.decode(this.masterStuid);
+          stuid_this = Base64.decode(this.masterStuid);
         }
         if (this.masterStuid.length === 10) {
           this.visitor_end();
