@@ -415,7 +415,20 @@
                 justify="left"
                 length
               >
-                <h3>請確認宿生本人身分，可問他姓名確認，並量體溫</h3>
+                <h3 style="background-color: #e9c46a">
+                  請確認宿生本人身分，可問他姓名確認，並量體溫
+                </h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <br />
               </v-row>
               <v-row
                 v-show="
