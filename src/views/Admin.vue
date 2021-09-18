@@ -779,7 +779,7 @@ export default {
       if (!this.searchLoading && stuid_this.length <= 12) {
         self.searchLoading = true;
         if (this.masterStuid.length === 12) {
-          stuid_this = Base64.decode(this.masterStuid);
+          stuid_this = Base64.decode(stuid_this);
         }
         if (this.masterStuid.length === 10) {
           this.visitor_end();
