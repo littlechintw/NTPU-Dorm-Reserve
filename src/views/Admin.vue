@@ -833,6 +833,21 @@ export default {
               if (response.data.code === 200) {
                 // self.saveStatusData = response.data.message.data;
                 self.checkInUserData = response.data.message.data;
+                if (self.checkInUserData.cardid !== "還未報到") {
+                  self.checkinCardId = self.checkInUserData.cardid;
+                }
+                if (
+                  self.checkInUserData.coupon !== "還未報到" &&
+                  self.checkInUserData.coupon === "True"
+                ) {
+                  self.checkinCoupon = true;
+                }
+                if (
+                  self.checkInUserData.bill !== "還未報到" &&
+                  self.checkInUserData.bill === "True"
+                ) {
+                  self.checkinBill = true;
+                }
                 self.checkInUserData.stuid = stuid_this;
                 self.masterStuid = "";
                 self.initOverlay = false;
