@@ -415,7 +415,18 @@
                 justify="left"
                 length
               >
-                <h4>繳費</h4>
+                <h3>請確認宿生本人身分，可問他姓名確認，並量體溫</h3>
+              </v-row>
+              <v-row
+                v-show="
+                  checkInUserData.user_exist &&
+                  checkInUserData.stuid.length === 9
+                "
+                align="center"
+                justify="left"
+                length
+              >
+                <h4>繳費 (不知道去哪繳，可以說去繳學雜費的地方)</h4>
               </v-row>
               <v-row
                 v-show="
@@ -472,7 +483,7 @@
                 justify="left"
                 length
               >
-                <h4>停車優惠券</h4>
+                <h4>停車優惠券 (有看到這行就給他優惠券，並打勾)</h4>
               </v-row>
               <v-row
                 v-show="
@@ -500,7 +511,11 @@
                 justify="left"
                 length
               >
-                <h4>訪客</h4>
+                <h4>
+                  訪客
+                  (請訪客量體溫，質押訪客本人身分證，僅訪客本人可進出，不可換人，限制一人與
+                  30 分鐘)
+                </h4>
               </v-row>
               <v-row
                 v-show="
