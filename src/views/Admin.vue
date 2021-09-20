@@ -945,6 +945,8 @@ export default {
             }
           })
           .catch(function (error) {
+            self.initOverlay = false;
+            alert("請重新送出");
             alert(error);
           });
       }
