@@ -861,6 +861,8 @@ export default {
               }
             })
             .catch(function (error) {
+              self.initOverlay = false;
+              alert("請重新登入");
               alert(error);
             });
         }
@@ -894,6 +896,8 @@ export default {
           }
         })
         .catch(function (error) {
+          self.initOverlay = false;
+          alert("請重新登入");
           alert(error);
         });
     },
@@ -946,7 +950,7 @@ export default {
           })
           .catch(function (error) {
             self.initOverlay = false;
-            alert("請重新送出");
+            alert("請重新登入");
             alert(error);
           });
       }
