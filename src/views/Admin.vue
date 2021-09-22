@@ -616,6 +616,13 @@
                 <h3>{{ checkInUserData.note }}</h3>
               </v-row>
               <v-row
+                align="center"
+                justify="left"
+                length
+              >
+                <br />
+              </v-row>
+              <v-row
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.stuid.length === 9
@@ -717,7 +724,6 @@ export default {
         reserve_exist: false,
         user_exist: false,
         note: "",
-        hasSubmit: false,
       },
       checkinBill: false,
       checkinCardId: "",
@@ -726,6 +732,7 @@ export default {
       checkinVisitorId: "",
       checkinVisitorPhone: "09",
       searchLoading: false,
+      hasSubmit: true,
     };
   },
   components: {},
