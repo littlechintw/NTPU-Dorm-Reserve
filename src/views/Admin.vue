@@ -599,6 +599,23 @@
                 <br />
               </v-row>
               <v-row
+                align="center"
+                justify="center"
+                v-show="!hasSubmit"
+                style="background-color: #FF2A14"
+                length
+              >
+                <h3>請記得按下送出</h3>
+              </v-row>
+              <v-row
+                align="center"
+                justify="center"
+                style="background-color: #e9c46a"
+                length
+              >
+                <h3>{{ checkInUserData.note }}</h3>
+              </v-row>
+              <v-row
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.stuid.length === 9
@@ -700,6 +717,7 @@ export default {
         reserve_exist: false,
         user_exist: false,
         note: "",
+        hasSubmit: false,
       },
       checkinBill: false,
       checkinCardId: "",
@@ -813,6 +831,7 @@ export default {
           this.visitor_end();
         } else {
           this.initOverlay = true;
+          this.hasSubmit = false;
           this.checkInUserData.note = "";
           this.checkinBill = false;
           this.checkinCardId = "";
@@ -887,6 +906,7 @@ export default {
             self.masterStuid = "";
             self.initOverlay = false;
             self.searchLoading = false;
+            self.hasSubmit = true;
           } else {
             self.$cookie.set("session", response.data.session, 1);
           }
@@ -940,6 +960,7 @@ export default {
               self.checkInUserData = response.data.message.data;
               self.checkInUserData.stuid = tmp;
               self.initOverlay = false;
+              self.hasSubmit = true;
             } else {
               self.$cookie.set("session", response.data.session, 1);
             }
