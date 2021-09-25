@@ -864,7 +864,7 @@ export default {
             .then(function (response) {
               console.log(response.data);
               self.$cookie.set("session", response.data.session, 1);
-              this.hasSubmit = false;
+              self.hasSubmit = false;
               if (response.data.code === 200) {
                 // self.saveStatusData = response.data.message.data;
                 self.checkInUserData = response.data.message.data;
