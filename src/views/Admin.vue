@@ -224,6 +224,15 @@
               <v-row
                 align="center"
                 justify="center"
+                v-show="!hasSubmit"
+                style="background-color: #FF2A14"
+                length
+              >
+                <h3>還沒送出喔，請記得按最底下送出按鈕</h3>
+              </v-row>
+              <v-row
+                align="center"
+                justify="center"
                 style="background-color: #e9c46a"
                 length
               >
@@ -605,7 +614,7 @@
                 style="background-color: #FF2A14"
                 length
               >
-                <h3>請記得按下送出</h3>
+                <h3>還沒送出喔，請記得按下送出</h3>
               </v-row>
               <v-row
                 align="center"
@@ -838,7 +847,6 @@ export default {
           this.visitor_end();
         } else {
           this.initOverlay = true;
-          this.hasSubmit = false;
           this.checkInUserData.note = "";
           this.checkinBill = false;
           this.checkinCardId = "";
@@ -856,6 +864,7 @@ export default {
             .then(function (response) {
               console.log(response.data);
               self.$cookie.set("session", response.data.session, 1);
+              this.hasSubmit = false;
               if (response.data.code === 200) {
                 // self.saveStatusData = response.data.message.data;
                 self.checkInUserData = response.data.message.data;
@@ -1027,6 +1036,9 @@ export default {
     if (this.$cookie.get("session") && this.$cookie.get("id")) {
       this.loginStatus = true;
       this.updateStatus();
+    }
+    else {
+      this.$router.push("/login");
     }
     this.window_height = window.innerHeight;
     this.window_width = window.innerWidth;
