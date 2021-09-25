@@ -425,7 +425,7 @@
                 length
               >
                 <h3 style="background-color: #e9c46a">
-                  請確認宿生本人身分，可問他姓名確認，並量體溫
+                  請看宿生證件確認本人身分，並量體溫
                 </h3>
               </v-row>
               <v-row
