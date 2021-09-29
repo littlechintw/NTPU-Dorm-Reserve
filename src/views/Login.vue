@@ -17,6 +17,7 @@
             </v-row>
             <v-row align="center" justify="center" length>
               <v-form
+                disabled
                 ref="form"
                 v-model="valid"
                 v-on:submit.prevent="validate"
