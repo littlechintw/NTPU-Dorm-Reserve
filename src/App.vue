@@ -18,7 +18,7 @@
           >預約 / Reserve</v-btn
         >
         <v-card width="10px"></v-card>
-        <v-btn disabled :href="btn.url" elevation="2" outlined plain raised>{{
+        <v-btn :href="btn.url" elevation="2" outlined plain raised>{{
           btn.title
         }}</v-btn>
       </v-app-bar>
