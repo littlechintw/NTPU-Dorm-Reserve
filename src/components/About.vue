@@ -16,10 +16,10 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h3 style="color: #4c4c6d">9 月 16 日 下午 1 時開放預約</h3>
+            <h3 style="color: #4c4c6d">2 月 15 日 上午 9 時開放預約</h3>
           </v-row>
           <v-row align="center" justify="center" length>
-            <h4 style="color: gray">Start at 1 pm, Sep 16</h4>
+            <h4 style="color: gray">Start at 9 am, Feb 15</h4>
           </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
@@ -38,27 +38,37 @@
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
-          <!-- <v-row align="center" justify="center" length>
+          <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>7 / 16 ~ 7 / 23</h3>
-              <h3>7 / 25 ~ 7 / 26</h3>
+              <h3>2 / 18 ~ 2 / 19</h3>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4>報到 Check-in | 08:30 - 15:00</h4>
-                <h4>檢查 Checking | 13:00 - 15:30</h4>
+                <h4>09:00 - 12:00, 13:00 - 18:00</h4>
               </v-card>
             </v-col>
           </v-row>
           <v-row align="center" justify="center" length>
+            <v-card class="mx-auto" elevation="0" color="#EEEEEE">
+              <h3>2 / 20 ~ 2 / 28</h3>
+            </v-card>
+            <v-card width="10px"></v-card>
+            <v-divider vertical></v-divider>
+            <v-col>
+              <v-card class="mx-auto" elevation="0" color="#E8F6EF">
+                <h4>09:00 - 12:00, 13:00 - 17:00</h4>
+              </v-card>
+            </v-col>
+          </v-row>
+          <!-- <v-row align="center" justify="center" length>
             <h5 style="color: #ec3913">7 / 24 因應停電暫停受理</h5>
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
           </v-row> -->
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
               <h3>9 / 18 ~ 9 / 26</h3>
             </v-card>
@@ -69,7 +79,7 @@
                 <h4 style="text-align: center">09:00 - 16:00</h4>
               </v-card>
             </v-col>
-          </v-row>
+          </v-row> -->
           <!-- <v-row align="center" justify="center" length>
             <h5 style="color: #ec3913">12:00 - 13:00 為人員休息時間</h5>
           </v-row> -->
@@ -172,8 +182,7 @@
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 由於疫情關係，目前限制進入宿舍訪客為 1 人，且訪客時間限制 30
-              分鐘，請於開宿當天協同訪客攜帶身分證至各棟櫃檯辦理訪客！
+              Ans. 由於疫情關係，宿舍不開放訪客進入宿舍。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
@@ -181,8 +190,7 @@
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 由於疫情關係，目前限制僅能於開宿當天進入校園，訪客上限為 2
-              人，且必須申請國立臺北大學訪客一日通行，建議可以先行預約完畢，並點擊預約完成頁面下方的申請一日通行相關按鈕進行申請！
+              Ans. 家人可以直接於校門口掃描 1922 實聯制進入校園，由於疫情關係，宿舍不開放訪客進入宿舍。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>

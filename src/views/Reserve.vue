@@ -59,7 +59,7 @@
                           <!-- <div style="width: 10px; display: inline-block" /> -->
                         </v-chip>
 
-                        <div style="width: 3px; display: inline-block" />
+                        <!-- <div style="width: 3px; display: inline-block" />
 
                         尚可預約
                         <div
@@ -73,52 +73,54 @@
                             {{ item.maxPeople - item.currentPeople }}
                           </strong>
                         </div>
-                        人
+                        人 -->
                       </div>
-                      <div style="height: 30px" />
+                      <!-- <div style="height: 30px" /> -->
                     </template>
                   </v-radio>
                 </v-radio-group>
 
                 <div style="height: 10px" />
-                <h2 style="width: 100%; text-align: center">
-                  🔻是否需停車優惠券🔻
-                </h2>
-                <h4 style="width: 100%; text-align: center; color: gray">
-                  Parking Coupon
-                </h4>
-                <h4 style="width: 100%; text-align: center">
-                  優惠券限當日一次進出，且僅有一張
-                </h4>
-                <h5 style="width: 100%; text-align: center; color: gray">
-                  Just for one time parking at the check-in day!
-                </h5>
-                <v-radio-group
-                  v-model="carCoupon"
-                  :disabled="userData.reserveStatus != 1"
-                >
-                  <v-radio value="y">
-                    <template v-slot:label>
-                      <div>是，需要 / Yes</div>
-                    </template>
-                  </v-radio>
+                <div v-if="reserveTime == '2181' || reserveTime == '2182' || reserveTime == '2191' || reserveTime == '2192'">
+                  <h2 style="width: 100%; text-align: center">
+                    🔻是否需停車優惠券🔻
+                  </h2>
+                  <h4 style="width: 100%; text-align: center; color: gray">
+                    Parking Coupon
+                  </h4>
+                  <h4 style="width: 100%; text-align: center">
+                    優惠券限當日一次進出，且僅有一張
+                  </h4>
+                  <h5 style="width: 100%; text-align: center; color: gray">
+                    Just for one time parking at the check-in day!
+                  </h5>
+                  <v-radio-group
+                    v-model="carCoupon"
+                    :disabled="userData.reserveStatus != 1"
+                  >
+                    <v-radio value="y">
+                      <template v-slot:label>
+                        <div>是，需要 / Yes</div>
+                      </template>
+                    </v-radio>
 
-                  <v-text-field
-                    v-model="carId"
-                    :rules="carIdRules"
-                    :counter="8"
-                    label="車號 / License plate number"
-                    required
-                    :disabled="carCoupon == 'n'"
-                    style="padding-left: 30px"
-                  ></v-text-field>
-                  <v-radio value="n">
-                    <template v-slot:label>
-                      <div>否，不需要 / No</div>
-                      <div style="height: 50px" />
-                    </template>
-                  </v-radio>
-                </v-radio-group>
+                    <v-text-field
+                      v-model="carId"
+                      :rules="carIdRules"
+                      :counter="8"
+                      label="車號 / License plate number"
+                      required
+                      :disabled="carCoupon == 'n'"
+                      style="padding-left: 30px"
+                    ></v-text-field>
+                    <v-radio value="n">
+                      <template v-slot:label>
+                        <div>否，不需要 / No</div>
+                        <div style="height: 50px" />
+                      </template>
+                    </v-radio>
+                  </v-radio-group>
+                </div>
 
                 <v-row align="center" justify="center" length>
                   <v-btn
@@ -580,7 +582,7 @@ export default {
   data() {
     return {
       initOverlay: true,
-      healthWrite: false,
+      healthWrite: true,
       window_height: 100,
       window_width: 100,
       overlay: false,
@@ -689,8 +691,8 @@ export default {
             if (response.data.message.admin === true) {
               self.$router.push("admin");
             }
-            if (response.data.message.health_status !== false) {
-              self.healthWrite = true;
+            if (response.data.message.health_status === false) {
+              self.healthWrite = false;
             }
             if (response.data.message.record === false) {
               self.saveStatusData = response.data.message.data;
@@ -795,6 +797,9 @@ export default {
       }
     },
     formCheckBtn() {
+      if (!(this.reserveTime == '2181' || this.reserveTime == '2182' || this.reserveTime == '2191' || this.reserveTime == '2192')) {
+        this.carCoupon = "n"
+      }
       if (
         this.reserveTime === "" ||
         (this.carCoupon === "y" && this.carId === "") ||

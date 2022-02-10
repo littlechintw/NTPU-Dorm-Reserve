@@ -29,11 +29,11 @@
             Login as {{ account }}
           </v-alert>
         </v-card>
-        <v-card>
+        <!-- <v-card>
           <v-alert type="warning" dense text dismissible>
-            開宿時間已經結束，系統已經關閉！
+            系統仍在調整階段
           </v-alert>
-        </v-card>
+        </v-card> -->
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
           <router-view />
         </div>
