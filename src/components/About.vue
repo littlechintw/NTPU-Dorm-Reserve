@@ -53,6 +53,7 @@
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" color="#EEEEEE">
               <h3>2 / 20 ~ 2 / 28</h3>
+              <h4 style="color: red">（延後報到入住）</h4>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
@@ -83,6 +84,27 @@
           <!-- <v-row align="center" justify="center" length>
             <h5 style="color: #ec3913">12:00 - 13:00 為人員休息時間</h5>
           </v-row> -->
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <v-divider></v-divider>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h2>開宿公告</h2>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4 style="color: gray">Announcement</h4>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <br />
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h3><a href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php" target="_blank">https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php</a></h3>
+          </v-row>
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
@@ -151,7 +173,16 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q1. 我可以用多個裝置一起搶時段嗎？</h4>
+            <h4>Q1. 這次開宿時段有限制人數嗎？</h4>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h5 style="color: gray">
+              Ans.
+              本次預約時段沒有人數上限。
+            </h5>
+          </v-row>
+          <v-row align="center" justify="left" length>
+            <h4>Q2. 我可以用多個裝置一起搶時段嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -160,7 +191,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q2. 預約錯了或是想要取消怎麼辦？</h4>
+            <h4>Q3. 預約錯了或是想要取消怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -169,7 +200,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q3. 系統建議延後報到怎麼辦？</h4>
+            <h4>Q4. 系統建議延後報到怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -178,7 +209,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q4. 訪客可以進入宿舍嗎？</h4>
+            <h4>Q5. 訪客可以進入宿舍嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -186,7 +217,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q5. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
+            <h4>Q6. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -194,7 +225,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q6. 出現帳號未授權訊息怎麼辦？</h4>
+            <h4>Q7. 出現帳號未授權訊息怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -203,7 +234,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q7. 為何會出現你壞壞的訊息？</h4>
+            <h4>Q8. 為何會出現你壞壞的訊息？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">

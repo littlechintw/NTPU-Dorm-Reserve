@@ -464,7 +464,7 @@
             </v-row>
             <v-row align="center" justify="center" length>
               <h3>
-                為因應新冠肺炎疫情，請填寫自我通報健康關懷表，並務必詳細閱讀注意事項。謝謝。
+                為因應新冠肺炎疫情，請填寫自我通報健康關懷表，並務必詳細閱讀注意事項，如果有下列狀況，請依個人狀況誠實勾選。謝謝。
               </h3>
             </v-row>
             <v-row align="center" justify="center" length>
