@@ -42,7 +42,7 @@
 
     <v-footer padless class="font-weight-medium" color="#e9c46a">
       <v-col class="text-center" cols="12" style="font-size: 14px">
-        &copy; 2021 Copyright
+        &copy; 2022 Copyright
         <a href="https://littlechintw.github.io">littlechin.tw</a>. All rights
         reserved.
       </v-col>

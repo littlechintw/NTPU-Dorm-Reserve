@@ -277,7 +277,7 @@
             <br />
           </v-row>
 
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <h4>
               如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，如須申請兩人，請申請兩次，本通行碼僅適用於開宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，並請宿舍訪客攜帶<strong
                 style="color: #e76f51"
@@ -304,7 +304,7 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
             <h5 style="background-color: #e7b0a2">
               (一)
