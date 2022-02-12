@@ -313,7 +313,7 @@
               >
                 <h3>是否繳費： {{ checkInUserData.bill }}</h3>
               </v-row>
-              <v-row
+              <!-- <v-row
                 v-show="checkInUserData.user_exist"
                 align="center"
                 justify="left"
@@ -336,7 +336,7 @@
                 length
               >
                 <h3>目前訪客是否還在宿舍： {{ checkInUserData.visitor }}</h3>
-              </v-row>
+              </v-row> -->
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
@@ -465,7 +465,7 @@
                   </template>
                 </v-switch>
               </v-row>
-              <v-row
+              <!-- <v-row
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.stuid.length === 9
@@ -494,7 +494,7 @@
                   >
                   </v-text-field>
                 </div>
-              </v-row>
+              </v-row> -->
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
@@ -523,7 +523,7 @@
                   </template>
                 </v-switch>
               </v-row>
-              <v-row
+              <!-- <v-row
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.visitorId === 'None' &&
@@ -551,10 +551,10 @@
               >
                 <v-switch v-model="checkinVisitor">
                   <template v-slot:label>
-                    <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
+                    <h3>{{ showTextBill(checkinBill) }}</h3>
                   </template>
                 </v-switch>
-              </v-row>
+              </v-row> -->
               <v-row
                 v-show="
                   checkinVisitor &&
@@ -939,7 +939,8 @@ export default {
     },
     masterCheckin() {
       // this.checkinBill = false;
-      // this.checkinCardId = "";
+      this.checkinCardId = "0";
+      // 因無臨時卡需求，故先全設為 0
       // this.checkinCoupon = false;
       if (this.checkinCardId === "") {
         alert("請填寫臨時卡號碼");

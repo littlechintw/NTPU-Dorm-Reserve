@@ -22,9 +22,12 @@ Vue.use(VueAnalytics, {
   checkDuplicatedScript: true
 })
 
+// import VueMarkdown from 'vue-markdown'
+
 new Vue({
   router,
   store,
   vuetify,
+  // VueMarkdown,
   render: h => h(App)
 }).$mount('#app')

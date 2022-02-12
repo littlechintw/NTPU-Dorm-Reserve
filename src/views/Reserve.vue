@@ -423,6 +423,21 @@
 
     <!-- 實聯制登記 -->
     <v-container v-show="!healthWrite" fluid>
+      <v-overlay
+        :absolute="absolute"
+        :value="announcementOverlay"
+      >
+        <v-card color="white" :width="window_width*0.8" style="color: black; padding: 15px">
+          <Announcement />
+
+          <v-btn
+            color="success"
+            @click="announcementOverlay = false"
+          >
+            我已詳閱公告，並願意配合
+          </v-btn>
+        </v-card>
+      </v-overlay>
       <v-row>
         <v-col cols="12">
           <v-row align="center" justify="center" length><br /></v-row>
@@ -573,6 +588,7 @@
 
 <script>
 import About from "../components/About";
+import Announcement from "../components/Announcement.vue"
 const axios = require("axios");
 var config = require("../../config.json");
 let Base64 = require("js-base64").Base64;
@@ -643,10 +659,12 @@ export default {
         room: "",
       },
       qrcodeText: "",
+      announcementOverlay: true,
     };
   },
   components: {
     About,
+    Announcement,
   },
   methods: {
     reserveBtn(item) {
