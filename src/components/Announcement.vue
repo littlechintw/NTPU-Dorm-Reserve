@@ -1,7 +1,7 @@
 <template>
     <v-container fluid>
       <v-card :height="window_height*0.6" style="overflow-y: scroll; color: black;" color="white" elevation="0">
-        <h1>110-2 學期三峽校區學生宿舍報到入住公告</h1>
+        <h1><a href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php" target=”_blank”>110-2 學期三峽校區學生宿舍報到入住公告</a>（<red>公告內容以住輔組網頁公告為主</red>）</h1>
 
         <h2>一、宿舍入住報到時間：</h2>
         <div class="intext">
@@ -11,7 +11,7 @@
 
         <h2>二、入住報到須知：</h2>
         <div class="intext">
-          <h3>（一）<red>『預約系統』預約：（2 月 15 日 上午 9 點開放系統）</red></h3>
+          <h3>（一）<red>『預約系統』預約：（2 月 14 日 上午 9 點開放系統）</red></h3>
           <div class="intext">
             <h3>1. 為便於安排工作人力，本次宿舍報到入住作業，全體宿生於報到前須至預約系統網頁登記預約，並填寫自我通報健康關懷表。</h3>
             <h3>2. 如無法於上述報到入住時間如期入住，請依下列說明申請延後入住作業；逾期未辦理者，視同放棄床位並釋出遞補：</h3>
