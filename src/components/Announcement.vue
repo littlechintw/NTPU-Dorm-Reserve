@@ -1,7 +1,8 @@
 <template>
     <v-container fluid>
       <v-card :height="window_height*0.6" style="overflow-y: scroll; color: black;" color="white" elevation="0">
-        <h1><a href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php" target=”_blank”>110-2 學期三峽校區學生宿舍報到入住公告</a>（<red>公告內容以住輔組網頁公告為主</red>）</h1>
+        <h1><a href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php" target=”_blank”>110-2 學期三峽校區學生宿舍報到入住公告</a></h1>
+        <h4><red>（公告內容以住輔組網頁公告為主）</red></h4>
 
         <h2>一、宿舍入住報到時間：</h2>
         <div class="intext">
