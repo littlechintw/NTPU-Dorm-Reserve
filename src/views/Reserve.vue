@@ -239,7 +239,7 @@
             length
             v-show="checkData.checkin"
           >
-            <h2>已經完成報到</h2>
+            <h2 style="background-color: #e7b0a2">已經完成報到</h2>
           </v-row>
           <v-row align="center" justify="center" length>
             <h3>停車券 / Parking Coupon：</h3>
