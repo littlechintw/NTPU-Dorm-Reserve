@@ -193,7 +193,7 @@
               <br />
               <v-container fluid>
                 <v-row>
-                  <v-col cols="12" align="center">
+                  <v-col cols="12" align="center" v-show="!checkData.checkin">
                     <v-row align="center" justify="center" length>
                       <qr-code :text="qrcodeText" size="200"></qr-code>
                     </v-row>
@@ -202,6 +202,15 @@
                     </v-row>
                     <v-row align="center" justify="center" length>
                       <h4>開宿專用 QRcode</h4>
+                    </v-row>
+                  </v-col>
+                  <v-col cols="12" align="center" v-show="checkData.checkin">
+                    <v-row
+                      align="center"
+                      justify="center"
+                      length
+                    >
+                      <h1 style="background-color: #e7b0a2">已經完成報到</h1>
                     </v-row>
                   </v-col>
                 </v-row>
@@ -232,14 +241,6 @@
             <h3>
               <a style="color: #e76f51">{{ checkData.time }}</a>
             </h3>
-          </v-row>
-          <v-row
-            align="center"
-            justify="center"
-            length
-            v-show="checkData.checkin"
-          >
-            <h2 style="background-color: #e7b0a2">已經完成報到</h2>
           </v-row>
           <v-row align="center" justify="center" length>
             <h3>停車券 / Parking Coupon：</h3>
