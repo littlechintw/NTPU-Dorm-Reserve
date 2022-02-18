@@ -81,7 +81,7 @@
                 </v-radio-group>
 
                 <div style="height: 10px" />
-                <div v-if="reserveTime == '2181' || reserveTime == '2182' || reserveTime == '2191' || reserveTime == '2192'">
+                <div v-if="false">
                   <h2 style="width: 100%; text-align: center">
                     🔻是否需停車優惠券🔻
                   </h2>
@@ -153,11 +153,11 @@
                   <a style="color: #e76f51">{{ checkData.time }}</a>
                 </h3>
               </v-row>
-              <v-row align="center" justify="center" length>
+              <!-- <v-row align="center" justify="center" length>
                 <h3>
                   停車券： <a style="color: #e76f51">{{ checkData.carData }}</a>
                 </h3>
-              </v-row>
+              </v-row> -->
               <v-row align="center" justify="center" length>
                 <div style="height: 50px" />
               </v-row>
@@ -824,9 +824,10 @@ export default {
       }
     },
     formCheckBtn() {
-      if (!(this.reserveTime == '2181' || this.reserveTime == '2182' || this.reserveTime == '2191' || this.reserveTime == '2192')) {
-        this.carCoupon = "n"
-      }
+      // if (!(this.reserveTime == '2181' || this.reserveTime == '2182' || this.reserveTime == '2191' || this.reserveTime == '2192')) {
+      //   this.carCoupon = "n"
+      // }
+      this.carCoupon = "n"
       if (
         this.reserveTime === "" ||
         (this.carCoupon === "y" && this.carId === "") ||
