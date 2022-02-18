@@ -1,5 +1,5 @@
 <template>
-  <v-card elevation="0">
+  <v-card elevation="0" :style="backgroundColor">
     <v-container v-show="!manage" fluid>
       <v-row>
         <v-col cols="12">
@@ -220,7 +220,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <v-card class="mx-auto" width="344" elevation="0">
+            <v-card class="mx-auto" width="344" elevation="0" :style="backgroundColor">
               <v-row
                 align="center"
                 justify="center"
@@ -395,7 +395,7 @@
             justify="center"
             length
           >
-            <v-card class="mx-auto" width="344" elevation="0">
+            <v-card class="mx-auto" width="344" elevation="0" :style="backgroundColor">
               <v-divider />
             </v-card>
           </v-row>
@@ -403,7 +403,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <v-card class="mx-auto" width="344" elevation="0">
+            <v-card class="mx-auto" width="344" elevation="0" :style="backgroundColor">
               <v-row
                 v-show="
                   checkInUserData.user_exist &&
@@ -499,7 +499,8 @@
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.parking !== '不需要' &&
-                  checkInUserData.stuid.length === 9
+                  checkInUserData.stuid.length === 9 &&
+                  checkInUserData.reserve_exist
                 "
                 align="center"
                 justify="left"
@@ -511,7 +512,8 @@
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.parking !== '不需要' &&
-                  checkInUserData.stuid.length === 9
+                  checkInUserData.stuid.length === 9 &&
+                  checkInUserData.reserve_exist
                 "
                 align="center"
                 justify="center"
@@ -671,6 +673,7 @@ export default {
   name: "Home",
   data() {
     return {
+      backgroundColor: "background-color: #FFFFFF",
       initOverlay: true,
       window_height: 100,
       window_width: 100,
@@ -865,6 +868,7 @@ export default {
               console.log(response.data);
               self.$cookie.set("session", response.data.session, 1);
               self.hasSubmit = false;
+              self.backgroundColor = "background-color: #E2BDD6";
               if (response.data.code === 200) {
                 // self.saveStatusData = response.data.message.data;
                 self.checkInUserData = response.data.message.data;
@@ -923,6 +927,7 @@ export default {
             self.initOverlay = false;
             self.searchLoading = false;
             self.hasSubmit = true;
+            self.backgroundColor = "background-color: #FFFFFF";
           } else {
             self.$cookie.set("session", response.data.session, 1);
           }
@@ -978,6 +983,7 @@ export default {
               self.checkInUserData.stuid = tmp;
               self.initOverlay = false;
               self.hasSubmit = true;
+              self.backgroundColor = "background-color: #FFFFFF";
             } else {
               self.$cookie.set("session", response.data.session, 1);
             }
