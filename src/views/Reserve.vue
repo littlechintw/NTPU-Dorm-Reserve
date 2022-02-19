@@ -206,7 +206,7 @@
                   </v-col>-->
                   <v-col cols="12" align="center" v-show="!checkData.checkin">
                     <v-row align="center" justify="center" length>
-                      <h4>請攜帶學生證開宿</h4>
+                      <h1 style="background-color: #e7b0a2">請攜帶學生證開宿</h1>
                     </v-row>
                   </v-col>
                   <v-col cols="12" align="center" v-show="checkData.checkin">
