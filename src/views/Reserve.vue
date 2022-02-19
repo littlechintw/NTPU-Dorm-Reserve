@@ -193,7 +193,7 @@
               <br />
               <v-container fluid>
                 <v-row>
-                  <v-col cols="12" align="center" v-show="!checkData.checkin">
+                  <!--<v-col cols="12" align="center" v-show="!checkData.checkin">
                     <v-row align="center" justify="center" length>
                       <qr-code :text="qrcodeText" size="200"></qr-code>
                     </v-row>
@@ -202,6 +202,11 @@
                     </v-row>
                     <v-row align="center" justify="center" length>
                       <h4>開宿專用 QRcode</h4>
+                    </v-row>
+                  </v-col>-->
+                  <v-col cols="12" align="center" v-show="!checkData.checkin">
+                    <v-row align="center" justify="center" length>
+                      <h4>請攜帶學生證開宿</h4>
                     </v-row>
                   </v-col>
                   <v-col cols="12" align="center" v-show="checkData.checkin">
