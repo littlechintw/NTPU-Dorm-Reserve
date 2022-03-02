@@ -18,7 +18,7 @@
           >預約 / Reserve</v-btn
         >
         <v-card width="10px"></v-card>
-        <v-btn :href="btn.url" elevation="2" outlined plain raised>{{
+        <v-btn disabled :href="btn.url" elevation="2" outlined plain raised>{{
           btn.title
         }}</v-btn>
       </v-app-bar>
@@ -29,11 +29,11 @@
             Login as {{ account }}
           </v-alert>
         </v-card>
-        <!-- <v-card>
+        <v-card>
           <v-alert type="warning" dense text dismissible>
-            系統仍在調整階段
+            系統已經關閉
           </v-alert>
-        </v-card> -->
+        </v-card>
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">
           <router-view />
         </div>
