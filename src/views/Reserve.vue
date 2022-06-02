@@ -227,13 +227,13 @@
                       <br />
                     </v-row>
                     <v-row align="center" justify="center" length>
-                      <h4>開宿專用 QRcode</h4>
+                      <h4>離宿專用 QRcode</h4>
                     </v-row>
                   </v-col>-->
                   <v-col cols="12" align="center" v-show="!checkData.checkin">
                     <v-row align="center" justify="center" length>
                       <h1 style="background-color: #e7b0a2">
-                        請攜帶學生證開宿
+                        請攜帶學生證離宿
                       </h1>
                     </v-row>
                   </v-col>
@@ -264,25 +264,25 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h3>您的開宿時間 / Check-in time：</h3>
+            <h3>您的離宿時間 / Check-in time：</h3>
           </v-row>
           <v-row align="center" justify="center" length>
             <h3>
               <a style="color: #e76f51">{{ checkData.time }}</a>
             </h3>
           </v-row>
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <h3>停車券 / Parking Coupon：</h3>
           </v-row>
           <v-row align="center" justify="center" length>
             <h3>
               <a style="color: #e76f51">{{ checkData.carData }}</a>
             </h3>
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <v-divider />
           </v-row>
           <v-row align="center" justify="center" length>
@@ -307,7 +307,7 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
             <v-divider />
           </v-row>
@@ -317,7 +317,7 @@
 
           <!-- <v-row align="center" justify="center" length>
             <h4>
-              如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，如須申請兩人，請申請兩次，本通行碼僅適用於開宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，並請宿舍訪客攜帶<strong
+              如有家長開車進入校園需求，請點選下方按鈕進行申請，一次以兩人為限，如須申請兩人，請申請兩次，本通行碼僅適用於離宿當天，訪客可進入校園，但無法進入宿舍，如有進入宿舍需求，請至各棟櫃台辦理訪客登記，並請宿舍訪客攜帶<strong
                 style="color: #e76f51"
                 >身分證</strong
               >，宿舍訪客僅限一人，且限制 30 分鐘。
@@ -491,7 +491,7 @@
             <!-- <v-row align="center" justify="center" length>
               <br />
               <v-chip class="ma-2" color="green" outlined>
-                北大宿舍開宿
+                北大宿舍離宿
               </v-chip>
               <br />
             </v-row> -->

@@ -12,7 +12,7 @@
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
@@ -20,7 +20,7 @@
           </v-row>
           <v-row align="center" justify="center" length>
             <h4 style="color: gray">Start at 9 am, Feb 14</h4>
-          </v-row>
+          </v-row> -->
           <!-- <v-row align="center" justify="center" length>
             <br />
           </v-row>
@@ -39,27 +39,45 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>2 / 18 ~ 2 / 19</h3>
+            <v-card class="mx-auto" elevation="0" width="150" color="#EEEEEE">
+              <v-row align="center" justify="center" length>
+                <h3>6 / 13 ~ 6 / 17</h3>
+              </v-row>
+              <v-row align="center" justify="center" length>
+                <h3>6 / 20 ~ 6 / 24</h3>
+              </v-row>
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4>09:00 - 12:00, 13:00 - 18:00</h4>
+                <v-row align="center" justify="center" length>
+                  <h4>09:00 - 12:00, 14:00 - 17:00</h4>
+                </v-row>
               </v-card>
             </v-col>
           </v-row>
           <v-row align="center" justify="center" length>
-            <v-card class="mx-auto" elevation="0" color="#EEEEEE">
-              <h3>2 / 20 ~ 2 / 28</h3>
-              <h4 style="color: red">（延後報到入住）</h4>
+            <br />
+          </v-row>
+
+          <v-row align="center" justify="center" length>
+            <v-card class="mx-auto" elevation="0" width="150" color="#EEEEEE">
+              <v-row align="center" justify="center" length>
+                <h3>6 / 18</h3>
+              </v-row>
+              <v-row align="center" justify="center" length>
+                <h3>6 / 25</h3>
+              </v-row>
+              <!-- <h4 style="color: red">（延後報到入住）</h4> -->
             </v-card>
             <v-card width="10px"></v-card>
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <h4>09:00 - 12:00, 13:00 - 17:00</h4>
+                <v-row align="center" justify="center" length>
+                  <h4>09:00 - 12:00, 13:00 - 17:00</h4>
+                </v-row>
               </v-card>
             </v-col>
           </v-row>
@@ -94,7 +112,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h2>開宿公告</h2>
+            <h2>離宿公告</h2>
           </v-row>
           <v-row align="center" justify="left" length>
             <h4 style="color: gray">Announcement</h4>
@@ -150,7 +168,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>3. 完成預約，請在約定時間完成開宿工作！</h4>
+            <h4>3. 完成預約，請在約定時間完成離宿工作！</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">Done!</h5>
@@ -179,10 +197,12 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q1. 這次開宿時段有限制人數嗎？</h4>
+            <h4>Q1. 這次關宿時段有限制人數嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h5 style="color: gray">Ans. 本次預約時段沒有人數上限。</h5>
+            <h5 style="color: gray">
+              Ans. 平日限制人數上限，但假日沒有人數上限。
+            </h5>
           </v-row>
           <v-row align="center" justify="left" length>
             <h4>Q2. 我可以用多個裝置一起搶時段嗎？</h4>
@@ -203,16 +223,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q4. 系統建議延後報到怎麼辦？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans.
-              由於疫情關係，未符合自我通報健康關懷表相關選項的使用者將會出現此警告，您可以繼續預約，但建議延後報到，待狀況解除後，再另行報到入住。
-            </h5>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q5. 訪客可以進入宿舍嗎？</h4>
+            <h4>Qˋ. 訪客可以進入宿舍嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -220,16 +231,15 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q6. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
+            <h4>Q5. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 家人可以直接於校門口掃描 1922
-              實聯制進入校園，由於疫情關係，宿舍不開放訪客進入宿舍。
+              Ans. 可以，但由於疫情關係，宿舍不開放訪客進入宿舍。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q7. 出現帳號未授權訊息怎麼辦？</h4>
+            <h4>Q6. 出現帳號未授權訊息怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -238,7 +248,7 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q8. 為何會出現你壞壞的訊息？</h4>
+            <h4>Q7. 為何會出現你壞壞的訊息？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
