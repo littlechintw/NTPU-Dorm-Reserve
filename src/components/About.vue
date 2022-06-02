@@ -7,7 +7,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h1 style="zoom: 1.3">北大開宿預約</h1>
+            <h1 style="zoom: 1.3">北大宿舍預約系統</h1>
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
@@ -103,7 +103,13 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h3><a href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php" target="_blank">https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php</a></h3>
+            <h3>
+              <a
+                href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php"
+                target="_blank"
+                >https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php</a
+              >
+            </h3>
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
@@ -176,10 +182,7 @@
             <h4>Q1. 這次開宿時段有限制人數嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans.
-              本次預約時段沒有人數上限。
-            </h5>
+            <h5 style="color: gray">Ans. 本次預約時段沒有人數上限。</h5>
           </v-row>
           <v-row align="center" justify="left" length>
             <h4>Q2. 我可以用多個裝置一起搶時段嗎？</h4>
@@ -221,7 +224,8 @@
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 家人可以直接於校門口掃描 1922 實聯制進入校園，由於疫情關係，宿舍不開放訪客進入宿舍。
+              Ans. 家人可以直接於校門口掃描 1922
+              實聯制進入校園，由於疫情關係，宿舍不開放訪客進入宿舍。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>

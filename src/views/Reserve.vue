@@ -46,22 +46,48 @@
                     :key="item"
                     :value="item.uuid"
                     :disabled="item.maxPeople - item.currentPeople <= 0"
+                    style="padding-bottom: 26px"
                   >
                     <template v-slot:label>
                       <div>
-                        <v-chip
-                          class="ma-2"
-                          :color="
-                            chipGetColor(item.currentPeople, item.maxPeople)
+                        <v-badge
+                          bordered
+                          color="error"
+                          overlap
+                          :content="
+                            '' +
+                            (item.maxPeople - item.currentPeople).toString()
                           "
                         >
-                          <strong>{{ item.date }} {{ item.time }}</strong>
-                          <!-- <div style="width: 10px; display: inline-block" /> -->
-                        </v-chip>
+                          <v-btn
+                            class="white--text"
+                            rounded
+                            :color="
+                              chipGetColor(item.currentPeople, item.maxPeople)
+                            "
+                            depressed
+                          >
+                            <strong style="color: black"
+                              >{{ item.date }} {{ item.time }}</strong
+                            >
+                          </v-btn>
+                        </v-badge>
 
-                        <!-- <div style="width: 3px; display: inline-block" />
+                        <!-- <v-badge overlap>
+                          <v-chip
+                            class="ma-4"
+                            :color="
+                              chipGetColor(item.currentPeople, item.maxPeople)
+                            "
+                          >
+                            <strong>{{ item.date }} {{ item.time }}</strong>
+                            <div style="width: 10px; display: inline-block" />
+                          </v-chip>
+                        </v-badge> -->
+                        <!-- 
+                        <div style="width: 3px; display: inline-block" />
 
-                        尚可預約
+                        尚可
                         <div
                           style="
                             width: 20px;
@@ -206,15 +232,13 @@
                   </v-col>-->
                   <v-col cols="12" align="center" v-show="!checkData.checkin">
                     <v-row align="center" justify="center" length>
-                      <h1 style="background-color: #e7b0a2">請攜帶學生證開宿</h1>
+                      <h1 style="background-color: #e7b0a2">
+                        請攜帶學生證開宿
+                      </h1>
                     </v-row>
                   </v-col>
                   <v-col cols="12" align="center" v-show="checkData.checkin">
-                    <v-row
-                      align="center"
-                      justify="center"
-                      length
-                    >
+                    <v-row align="center" justify="center" length>
                       <h1 style="background-color: #e7b0a2">已經完成報到</h1>
                     </v-row>
                   </v-col>
@@ -437,17 +461,15 @@
 
     <!-- 實聯制登記 -->
     <v-container v-show="!healthWrite" fluid>
-      <v-overlay
-        :absolute="absolute"
-        :value="announcementOverlay"
-      >
-        <v-card color="white" :width="window_width*0.8" style="color: black; padding: 15px">
+      <v-overlay :absolute="absolute" :value="announcementOverlay">
+        <v-card
+          color="white"
+          :width="window_width * 0.8"
+          style="color: black; padding: 15px"
+        >
           <Announcement />
 
-          <v-btn
-            color="success"
-            @click="announcementOverlay = false"
-          >
+          <v-btn color="success" @click="announcementOverlay = false">
             我已詳閱公告，並願意配合
           </v-btn>
         </v-card>
@@ -602,7 +624,7 @@
 
 <script>
 import About from "../components/About";
-import Announcement from "../components/Announcement.vue"
+import Announcement from "../components/Announcement.vue";
 const axios = require("axios");
 var config = require("../../config.json");
 let Base64 = require("js-base64").Base64;
@@ -723,9 +745,9 @@ export default {
             if (response.data.message.admin === true) {
               self.$router.push("admin");
             }
-            if (response.data.message.health_status === false) {
-              self.healthWrite = false;
-            }
+            // if (response.data.message.health_status === false) {
+            //   self.healthWrite = false;
+            // }
             if (response.data.message.record === false) {
               self.saveStatusData = response.data.message.data;
               self.userData.building = response.data.message.build;
@@ -832,7 +854,7 @@ export default {
       // if (!(this.reserveTime == '2181' || this.reserveTime == '2182' || this.reserveTime == '2191' || this.reserveTime == '2192')) {
       //   this.carCoupon = "n"
       // }
-      this.carCoupon = "n"
+      this.carCoupon = "n";
       if (
         this.reserveTime === "" ||
         (this.carCoupon === "y" && this.carId === "") ||

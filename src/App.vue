@@ -4,7 +4,7 @@
       <v-app-bar app dark dense flat color="#264653">
         <v-toolbar-title>
           <a href="/" style="color: white; text-decoration: none"
-            >北大宿舍開宿預約</a
+            >北大宿舍預約系統</a
           >
         </v-toolbar-title>
         <v-spacer></v-spacer>
@@ -18,9 +18,15 @@
           >預約 / Reserve</v-btn
         >
         <v-card width="10px"></v-card>
-        <v-btn disabled :href="btn.url" elevation="2" outlined plain raised>{{
-          btn.title
-        }}</v-btn>
+        <v-btn
+          :disabled="closeState"
+          :href="btn.url"
+          elevation="2"
+          outlined
+          plain
+          raised
+          >{{ btn.title }}</v-btn
+        >
       </v-app-bar>
 
       <v-main>
@@ -30,7 +36,7 @@
           </v-alert>
         </v-card>
         <v-card>
-          <v-alert type="warning" dense text dismissible>
+          <v-alert v-if="closeState" type="warning" dense text dismissible>
             系統已經關閉
           </v-alert>
         </v-card>
@@ -52,6 +58,7 @@
 
 <script>
 let Base64 = require("js-base64").Base64;
+var config = require("../config.json");
 export default {
   name: "App",
   components: {
@@ -67,8 +74,10 @@ export default {
     login: false,
     Height: 0,
     Width: 0,
+    closeState: false,
   }),
   mounted() {
+    this.closeState = config.closeState;
     if (this.$cookie.get("id")) {
       this.btn.title = "LOGOUT";
       this.btn.url = "/logout";
