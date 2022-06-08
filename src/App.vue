@@ -30,11 +30,11 @@
       </v-app-bar>
 
       <v-main>
-        <v-card>
+        <!-- <v-card>
           <v-alert type="red" dense text dismissible>
             系統將於 6/8 22:00 ~ 23:00 維護，將短暫無法使用，請您見諒！
           </v-alert>
-        </v-card>
+        </v-card> -->
         <v-card v-show="account">
           <v-alert type="success" dense text dismissible>
             Login as {{ account }}
