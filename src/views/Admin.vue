@@ -297,22 +297,22 @@
               >
                 <h3>停車優惠券： {{ checkInUserData.parking }}</h3>
               </v-row>
-              <v-row
+              <!-- <v-row
                 v-show="checkInUserData.user_exist"
                 align="center"
                 justify="left"
                 length
               >
                 <h3>是否報到： {{ checkInUserData.checkin }}</h3>
-              </v-row>
-              <v-row
+              </v-row> -->
+              <!-- <v-row
                 v-show="checkInUserData.user_exist"
                 align="center"
                 justify="left"
                 length
               >
                 <h3>是否繳費： {{ checkInUserData.bill }}</h3>
-              </v-row>
+              </v-row> -->
               <!-- <v-row
                 v-show="checkInUserData.user_exist"
                 align="center"
@@ -415,7 +415,7 @@
               >
                 <br />
               </v-row>
-              <v-row
+              <!-- <v-row
                 v-show="
                   checkInUserData.user_exist &&
                   checkInUserData.stuid.length === 9
@@ -461,10 +461,10 @@
               >
                 <v-switch v-model="checkinBill">
                   <template v-slot:label>
-                    <!-- <h3>{{ showTextBill(checkinBill) }}</h3> -->
+                    <h3>{{ showTextBill(checkinBill) }}</h3>
                   </template>
                 </v-switch>
-              </v-row>
+              </v-row> -->
               <!-- <v-row
                 v-show="
                   checkInUserData.user_exist &&
@@ -712,11 +712,11 @@ export default {
         { text: "日期", value: "d" },
         { text: "學號", value: "s" },
         { text: "棟別", value: "b" },
-        { text: "停車券", value: "p" },
-        { text: "是否健康", value: "h" },
-        { text: "報到", value: "c" },
-        { text: "訪客是否在宿舍", value: "vi" },
-        { text: "訪客開始時間", value: "vs" },
+        // { text: "停車券", value: "p" },
+        // { text: "是否健康", value: "h" },
+        { text: "完成離宿", value: "c" },
+        // { text: "訪客是否在宿舍", value: "vi" },
+        // { text: "訪客開始時間", value: "vs" },
         { text: "刪除", value: "de" },
       ],
       downloadHref: "N/A",
@@ -867,8 +867,8 @@ export default {
             .then(function (response) {
               console.log(response.data);
               self.$cookie.set("session", response.data.session, 1);
-              self.hasSubmit = false;
-              self.backgroundColor = "background-color: #E2BDD6";
+              // self.hasSubmit = false;
+              // self.backgroundColor = "background-color: #E2BDD6";
               if (response.data.code === 200) {
                 // self.saveStatusData = response.data.message.data;
                 self.checkInUserData = response.data.message.data;
