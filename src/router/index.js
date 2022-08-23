@@ -29,14 +29,6 @@ const routes = [
     },
   },
   {
-    path: '/health',
-    name: 'Health',
-    component: () => import('../views/Health.vue'),
-    meta: {
-      title: '健康聲明填寫 | 北大宿舍開宿預約',
-    },
-  },
-  {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue'),
@@ -52,15 +44,6 @@ const routes = [
       title: 'Logout | 北大宿舍開宿預約',
     },
   },
-  {
-    path: '/admin',
-    name: 'Admin',
-    component: () => import('../views/Admin.vue'),
-    meta: {
-      title: 'Admin | 北大宿舍開宿預約',
-    },
-  },
-
 ]
 
 const router = new VueRouter({

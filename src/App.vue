@@ -83,7 +83,7 @@ export default {
   }),
   mounted() {
     this.closeState = config.closeState;
-    if (this.$cookie.get("id")) {
+    if (this.$cookie.get("token")) {
       this.btn.title = "LOGOUT";
       this.btn.url = "/logout";
       this.reserveBtnShow = true;

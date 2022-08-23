@@ -103,7 +103,7 @@ export default {
         this.tipsText = "";
         let self = this;
         axios
-          .post(config.apiurl + "/account", {
+          .post(config.apiurl + "/login", {
             stu_id: this.stuid,
             pwd: this.pwd,
           })
@@ -114,8 +114,7 @@ export default {
               self.formLoadingShow = false;
               self.tipsText = response.data.message;
             } else {
-              self.$cookie.set("session", response.data.session, 1);
-              self.$cookie.set("id", response.data.message.id, 1);
+              self.$cookie.set("token", response.data.session, 1);
               self.$router.push("/reserve");
               location.reload();
             }
@@ -127,7 +126,7 @@ export default {
     },
   },
   mounted: function () {
-    if (this.$cookie.get("session") && this.$cookie.get("id")) {
+    if (this.$cookie.get("token")) {
       this.$router.push("/reserve");
     }
   },
