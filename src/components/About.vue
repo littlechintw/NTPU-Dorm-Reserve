@@ -12,15 +12,15 @@
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
-          <!-- <v-row align="center" justify="center" length>
+          <v-row align="center" justify="center" length>
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h3 style="color: #4c4c6d">2 月 14 日 上午 9 時開放預約</h3>
+            <h3 style="color: #4c4c6d">8 月 26 日 下午 1 時開放預約</h3>
           </v-row>
           <v-row align="center" justify="center" length>
-            <h4 style="color: gray">Start at 9 am, Feb 14</h4>
-          </v-row> -->
+            <h4 style="color: gray">Start at 1 pm, Aug 26</h4>
+          </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
           </v-row>
