@@ -285,24 +285,45 @@
             <h2>已完成預約 / Reserved</h2>
           </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="left" length>
+          <!-- <v-row align="center" justify="left" length>
             <h3>宿舍 / Dorm</h3>
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
-            <h4>{{ reserved_form.dorm }}</h4>
+            <v-chip class="ma-2" color="primary" outlined label>
+              <v-icon left>
+                mdi-home
+              </v-icon>
+              {{ reserved_form.dorm }}
+            </v-chip>
           </v-row>
-          <v-row align="center" justify="left" length>
+          <!-- <v-row align="center" justify="left" length>
             <h3>時間 / Time</h3>
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
-            <h4>{{ reserved_form.event }}</h4>
+            <v-chip class="ma-2" color="brown" outlined label>
+              <v-icon left>
+                mdi-clock
+              </v-icon>
+              {{ reserved_form.event }}
+            </v-chip>
+            <v-chip class="ma-2" color="brown" outlined label>
+              <v-icon left>
+                mdi-car
+              </v-icon>
+              {{ reserved_form.parking }}
+            </v-chip>
           </v-row>
-          <v-row align="center" justify="left" length>
+          <!-- <v-row align="center" justify="left" length>
             <h3>停車券 / Parking ticket</h3>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <h4>{{ reserved_form.parking }}</h4>
-          </v-row>
+          </v-row> -->
+          <!-- <v-row align="center" justify="center" length>
+            <v-chip class="ma-2" color="primary" outlined label>
+              <v-icon left>
+                mdi-car
+              </v-icon>
+              {{ reserved_form.parking }}
+            </v-chip>
+          </v-row> -->
 
           <v-row align="center" justify="center" length><br /></v-row>
           <v-row align="center" justify="center" length>
@@ -393,6 +414,7 @@ export default {
         phone: "",
         phoneRules: [
           (v) => !!v || "Required",
+          (v) => (v && v.length === 10) || "Required",
         ],
         check_1: false,
         check_2: false,
@@ -444,7 +466,7 @@ export default {
               self.reserved_form.event = response.data.message.reserved_data.event
               self.reserved_form.parking = response.data.message.reserved_data.parking
               if (self.reserved_form.parking === 'no') {
-                self.reserved_form.parking = '無 / None'
+                self.reserved_form.parking = '無停車 / No parking'
               }
               self.reserved_form.qrcode = response.data.message.reserved_data.qrcode
               self.reserved_form.dorm = response.data.message.reserved_data.dorm

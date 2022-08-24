@@ -1,4 +1,4 @@
 {
-    "apiurl": "https://cfbd-120-126-194-208.jp.ngrok.io",
+    "apiurl": "http://127.0.0.1:5000",
     "closeState": false
 }
