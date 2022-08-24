@@ -154,7 +154,7 @@
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 有的，將會依照預約系統上顯示人數進行分配。
+              Ans. 有的，您可以登入系統查看該棟各時段剩餘可預約人數。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
