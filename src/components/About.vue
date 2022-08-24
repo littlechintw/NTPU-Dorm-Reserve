@@ -65,7 +65,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h2>離宿公告</h2>
+            <h2>開宿公告</h2>
           </v-row>
           <v-row align="center" justify="left" length>
             <h4 style="color: gray">Announcement</h4>
@@ -112,7 +112,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>2. 挑選合適時間</h4>
+            <h4>2. 填寫健康聲明書，並挑選合適時間</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">Select the time.</h5>
@@ -121,7 +121,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>3. 完成預約，請在約定時間完成離宿工作！</h4>
+            <h4>3. 完成預約，請在約定時間完成開宿工作！</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">Done!</h5>
@@ -150,24 +150,15 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q1. 這次關宿時段有限制人數嗎？</h4>
+            <h4>Q1. 這次開宿時段有限制人數嗎？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 平日限制人數上限，但假日沒有人數上限。
+              Ans. 有的，將會依照預約系統上顯示人數進行分配。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q2. 我可以用多個裝置一起搶時段嗎？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans.
-              由於系統限制，每個帳號將限制僅有一台裝置可以操作，如果使用多台裝置，將有可能受到干擾。
-            </h5>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q3. 預約錯了或是想要取消怎麼辦？</h4>
+            <h4>Q2. 預約錯了或是想要取消怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
@@ -176,103 +167,22 @@
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Qˋ. 訪客可以進入宿舍嗎？</h4>
+            <h4>Q3. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
-              Ans. 由於疫情關係，宿舍不開放訪客進入宿舍。
+              Ans. 可以，可以直接進入校園，離校前需進行繳費。
             </h5>
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>Q5. 家長可以進入校園 / 可以與家人開車進入校園？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 可以，但由於疫情關係，宿舍不開放訪客進入宿舍。
-            </h5>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q6. 出現帳號未授權訊息怎麼辦？</h4>
+            <h4>Q4. 出現帳號未授權訊息怎麼辦？</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
               Ans.
               可以再次確認是否輸入正確的學號，或是確認自己是否有三峽校區床位！
             </h5>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q7. 為何會出現你壞壞的訊息？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans.
-              可能為操作速度過快、重複請求、或正在嘗試入侵，於收到此訊息後，將會導至登出頁面，僅需再登入一次，即可繼續操作。
-            </h5>
-          </v-row>
-          <!-- <v-row align="center" justify="center" length>
-            <br />
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q2. 我是還在宿舍留宿的宿生，請問 7 / 26 前一定要離宿嗎？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 不用，全體住宿生的離宿作業截止日都是到 7 / 31
-            </h5>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <br />
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>
-              Q3. 我 1 天的時間不夠整理，請問 7 / 16 - 7 / 26 能預約 2 天嗎？
-            </h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 不行，但可以規劃於 7 / 27 - 7 / 31 之間進行離宿檢查作業
-            </h5>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <br />
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q4. 7 / 27 - 7 / 31 為什麼沒有報到時間？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 7 / 27 可能就會降級，所以自 7 / 27
-              號起，未完成離宿檢查作業的宿生會開放宿舍的門禁權限，即可返宿住宿，不用另外報到
-            </h5>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <br />
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>Q5. 7 / 27 - 7 / 31 可以申請訪客入內嗎？</h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 不行，雖然解除 3
-              級疫情警戒，為了防疫需求，一樣是會禁止訪客進入宿舍
-            </h5>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <br />
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h4>
-              Q6.暑假住宿生一樣要在 7 / 16 - 7 / 31
-              進行離宿作業嗎？什麼時候繳交暑假費用及辦理後續搬遷作業？
-            </h4>
-          </v-row>
-          <v-row align="center" justify="left" length>
-            <h5 style="color: gray">
-              Ans. 不用在 7 / 16 - 7 / 31 進行搬遷作業。暑假住宿要等 109-2
-              離宿作業告一段落後，相關搬遷作業期程才會比較明確，請暑假住宿生注意住輔組最新公告。
-            </h5>
-          </v-row> -->
-          <v-row align="center" justify="center" length>
+          </v-row>          <v-row align="center" justify="center" length>
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
