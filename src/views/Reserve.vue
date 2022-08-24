@@ -414,7 +414,7 @@ export default {
         phone: "",
         phoneRules: [
           (v) => !!v || "Required",
-          (v) => (v && v.length === 10) || "Required",
+          (v) => (v && v.length === 10) || "Required 10 numbers",
         ],
         check_1: false,
         check_2: false,
