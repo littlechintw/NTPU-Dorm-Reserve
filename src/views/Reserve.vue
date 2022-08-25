@@ -213,6 +213,7 @@
 
               <v-stepper-content step="5">
                 <v-container fluid>
+                  <h4 style="color: orange">停車券可折抵當日一次停車，且僅有申請者可以於櫃檯領取！</h4>
                   <v-radio-group v-model="reserve_form.parking_radio" mandatory>
                     <v-radio label="需要停車券 / Need" value="y"></v-radio>
                     <v-radio label="不需要停車券 / No Need" value="n"></v-radio>
@@ -333,6 +334,10 @@
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length>
+                    <h2>報到 QRCode</h2>
+                  </v-row>
+                  <v-row align="center" justify="center" length><br /></v-row>
+                  <v-row align="center" justify="center" length>
                     <qr-code :text="reserved_form.qrcode" size="200"></qr-code>
                   </v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
@@ -348,6 +353,13 @@
           <v-row align="center" justify="center" length>
             <h5>You can save this QRCode as a
               screenshot, or open the site to display the QRCode</h5>
+          </v-row>
+          <v-row align="center" justify="center" length><br /></v-row>
+          <v-row align="center" justify="center" length>
+            <h4>建議關閉黑暗模式，如 QRCode 背景非為白色，將可能影響掃描</h4>
+          </v-row>
+          <v-row align="center" justify="center" length>
+            <h5>Suggest turn off the "Dark Mode"! If not a white background, it will affect to scan</h5>
           </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
           <v-row align="center" justify="center" length>
