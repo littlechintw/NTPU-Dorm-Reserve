@@ -532,8 +532,7 @@ export default {
             console.log(response.data)
           }
           if (response.data.code === 403) {
-            alert("You bad bad :(");
-            self.$router.push("/logout");
+            alert(response.data.message);
           }
         })
         .catch(function (error) {
