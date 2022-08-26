@@ -174,7 +174,9 @@
                       <tbody>
                         <tr v-for="item in events_list" :key="item.event_name">
                           <td>
-                            <v-radio :label="item.event_name" :value="item.event_id"></v-radio>
+                            <v-radio :label="item.event_name" :value="item.event_id"
+                              :disabled="item.remainReserve <= 0">
+                            </v-radio>
                           </td>
                           <td>
                             {{ item.remainReserve }}
@@ -423,7 +425,7 @@ export default {
       reserveDone: false,
 
       health_form: {
-        phone: "",
+        phone: "09",
         phoneRules: [
           (v) => !!v || "Required",
           (v) => (v && v.length === 10) || "Required 10 numbers",
@@ -471,6 +473,7 @@ export default {
           self.initOverlay = false;
           if (response.data.code === 200) {
             // console.log(response.data)
+            
             self.events_list = response.data.message.events;
             self.reserveDone = response.data.message.reserved;
 
