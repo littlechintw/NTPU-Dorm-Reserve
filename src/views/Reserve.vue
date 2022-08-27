@@ -49,7 +49,7 @@
 
                 <h3>個人資料</h3>
                 <v-text-field v-model="health_form.phone" :rules="health_form.phoneRules" label="連絡電話 / Phone"
-                  type="number" required>
+                  type="number" required maxlength="10" counter>
                 </v-text-field>
 
                 <v-divider></v-divider>
@@ -221,7 +221,7 @@
                     <v-radio label="不需要停車券 / No Need" value="n"></v-radio>
                   </v-radio-group>
                   <v-text-field v-show="reserve_form.parking_radio === 'y'" v-model="reserve_form.parking"
-                    label="車號 / Car ID" required>
+                    label="車號 / Car ID" required maxlength="8" counter>
                   </v-text-field>
                 </v-container>
 
