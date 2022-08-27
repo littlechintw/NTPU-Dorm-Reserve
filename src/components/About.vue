@@ -41,7 +41,7 @@
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" width="150">
               <v-row align="center" justify="center" length>
-                <h3>9/1 ~ 9/4</h3>
+                <h3>9/1 ~ 9/3</h3>
               </v-row>
             </v-card>
             <v-card width="10px"></v-card>
