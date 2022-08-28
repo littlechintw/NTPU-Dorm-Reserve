@@ -287,6 +287,9 @@
           <v-row align="center" justify="center" length>
             <h2>已完成預約 / Reserved</h2>
           </v-row>
+          <v-row align="center" justify="center" length>
+            <h4>請於當日出示 QRCode 並攜帶身分證明文件，如已繳費，請一併攜帶繳費記錄進行報到。</h4>
+          </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
           <!-- <v-row align="center" justify="left" length>
             <h3>宿舍 / Dorm</h3>
@@ -340,7 +343,8 @@
                   </v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length>
-                    <qr-code :text="reserved_form.qrcode" size="200"></qr-code>
+                    <qr-code v-show="!reserved_form.checkIn" :text="reserved_form.qrcode" size="200"></qr-code>
+                    <h3 v-show="reserved_form.checkIn" style="background-color: pink">完成報到 / CheckIn Finished</h3>
                   </v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
@@ -380,9 +384,10 @@
           </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
           <v-row align="center" justify="center" length>
+            <h3 v-show="reserved_form.checkIn" style="background-color: pink">完成報到 / CheckIn Finished</h3>
             <v-menu offset-y>
               <template v-slot:activator="{ on, attrs }">
-                <v-btn outlined color="#B5563E" class="mr-4" v-bind="attrs" v-on="on">
+                <v-btn outlined color="#B5563E" class="mr-4" v-bind="attrs" v-on="on" v-show="!reserved_form.checkIn">
                   取消預約 / Cancel reserve
                 </v-btn>
               </template>
@@ -447,6 +452,7 @@ export default {
         'event': "",
         'parking': "",
         'qrcode': "test",
+        'checkIn': false,
       },
 
       events_list: [],
@@ -485,6 +491,7 @@ export default {
               }
               self.reserved_form.qrcode = response.data.message.reserved_data.qrcode
               self.reserved_form.dorm = response.data.message.reserved_data.dorm
+              self.reserved_form.checkIn = response.data.message.reserved_data.checkIn
             }
           } else {
             console.log(response.data)

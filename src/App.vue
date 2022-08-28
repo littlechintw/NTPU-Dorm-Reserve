@@ -3,38 +3,21 @@
     <div class="inapp">
       <v-app-bar app dark dense flat color="#264653">
         <v-toolbar-title>
-          <a href="/" style="color: white; text-decoration: none"
-            >北大宿舍預約系統</a
-          >
+          <a href="/" style="color: white; text-decoration: none">北大宿舍預約系統</a>
         </v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn
-          v-show="reserveBtnShow"
-          href="/reserve"
-          elevation="2"
-          outlined
-          plain
-          raised
-          >預約 / Reserve</v-btn
-        >
+        <v-btn v-show="reserveBtnShow" href="/reserve" elevation="2" outlined plain raised>預約 / Reserve</v-btn>
         <v-card width="10px"></v-card>
-        <v-btn
-          :disabled="closeState"
-          :href="btn.url"
-          elevation="2"
-          outlined
-          plain
-          raised
-          >{{ btn.title }}</v-btn
-        >
+        <v-btn :disabled="closeState" :href="btn.url" elevation="2" outlined plain raised>{{ btn.title }}</v-btn>
       </v-app-bar>
 
       <v-main>
-        <!-- <v-card>
-          <v-alert type="red" dense text dismissible>
-            系統將於 6/8 22:00 ~ 23:00 維護，將短暫無法使用，請您見諒！
+        <v-card>
+          <v-alert type="red" dense text dismissible v-show="!apiStatus">
+            API seem bad, refresh this page for some times. If not work, please contact IT to solve this problem.
+             {{ apiurl }}
           </v-alert>
-        </v-card> -->
+        </v-card>
         <v-card v-show="account">
           <v-alert type="success" dense text dismissible>
             Login as {{ account }}
@@ -62,6 +45,7 @@
 </template>
 
 <script>
+const axios = require("axios");
 let Base64 = require("js-base64").Base64;
 var config = require("../config.json");
 export default {
@@ -70,6 +54,7 @@ export default {
     // HelloWorld,
   },
   data: () => ({
+    apiStatus: true,
     btn: {
       title: "LOGIN",
       url: "/login",
@@ -80,8 +65,30 @@ export default {
     Height: 0,
     Width: 0,
     closeState: false,
+    apiurl: "",
   }),
+  methods: {
+    checkApiAlive() {
+      let self = this;
+      this.apiurl = config.apiurl
+      axios({
+        method: 'get',
+        url: config.apiurl + "/monitor",
+      })
+        .then(function (response) {
+          console.log('API OK')
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log('API BAD')
+          self.apiStatus = false
+          console.log(error)
+          
+        });
+    }
+  },
   mounted() {
+    this.checkApiAlive()
     this.closeState = config.closeState;
     if (this.$cookie.get("token")) {
       this.btn.title = "LOGOUT";
