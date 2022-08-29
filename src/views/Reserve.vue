@@ -82,7 +82,7 @@
 
                 <!-- <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card> -->
                 <v-btn color="primary" @click="e13 = 3"
-                  :disabled="!health_form.serious_1 || (health_form.phone === '')">
+                  :disabled="!health_form.serious_1 || (health_form.phone === '') || (health_form.phone.length !== 10)">
                   下一步 / Next
                 </v-btn>
                 <v-btn text @click="e13 = 1">
