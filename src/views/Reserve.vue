@@ -9,7 +9,7 @@
             <about />
           </v-row>
           <v-row v-show="loginStatus" align="center" justify="center" length>
-            <h1>預約 / Rrserve</h1>
+            <h1>預約 / Reserve</h1>
           </v-row>
           <v-row v-show="loginStatus" align="center" justify="center" length>
             <br />
