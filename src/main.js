@@ -10,7 +10,7 @@ Vue.config.productionTip = false
 import VueCookie from 'vue-cookie'
 Vue.use(VueCookie)
 
-// QRcode gnerator
+// QRcode generator
 import VueQRCodeComponent from 'vue-qrcode-component'
 Vue.component('qr-code', VueQRCodeComponent)
 

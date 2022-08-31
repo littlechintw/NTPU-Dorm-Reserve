@@ -347,6 +347,11 @@
                     <h3 v-show="reserved_form.checkIn" style="background-color: pink">完成報到 / CheckIn Finished</h3>
                   </v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
+                  <v-row align="center" justify="center" length>
+                    <img :src="'https://barcode.tec-it.com/barcode.ashx?data=' + reserved_form.qrcode"
+                      v-show="!reserved_form.checkIn" style="width: 200px"/>
+                  </v-row>
+                  <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
                 </v-col>
               </v-row>
