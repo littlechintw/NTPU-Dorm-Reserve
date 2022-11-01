@@ -26,6 +26,8 @@ jobs:
       run: npm install
     - name: Build
       run: npm run build
+    - name: Build 404 Page
+      run: cp dist/index.html dist/404.html
       
     - name: GH Pages deploy
       uses: Cecilapp/GitHub-Pages-deploy@3.2.1
