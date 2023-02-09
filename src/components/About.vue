@@ -16,10 +16,10 @@
             <br />
           </v-row>
           <v-row align="center" justify="center" length>
-            <h3 style="color: #4c4c6d">8 月 26 日 下午 1 時開放預約</h3>
+            <h3 style="color: #4c4c6d">2 月 14 日 上午 9 時開放預約</h3>
           </v-row>
           <v-row align="center" justify="center" length>
-            <h4 style="color: gray">Start at 1 pm, Aug 26</h4>
+            <h4 style="color: gray">Start at 9 am, Feb 14</h4>
           </v-row>
           <!-- <v-row align="center" justify="center" length>
             <br />
@@ -41,7 +41,7 @@
           <v-row align="center" justify="center" length>
             <v-card class="mx-auto" elevation="0" width="150">
               <v-row align="center" justify="center" length>
-                <h3>9/1 ~ 9/3</h3>
+                <h3>2/17 ~ 2/19</h3>
               </v-row>
             </v-card>
             <v-card width="10px"></v-card>
