@@ -13,7 +13,7 @@
 
       <v-main>
         <v-card>
-          <v-alert type="red" dense text dismissible v-show="!apiStatus">
+          <v-alert type="red" dense text dismissible v-show="!apiStatus && !closeState">
             API seem bad, refresh this page for some times. If not work, please contact IT to solve this problem.
              {{ apiurl }}
           </v-alert>
@@ -25,7 +25,7 @@
         </v-card>
         <v-card>
           <v-alert v-if="closeState" type="warning" dense text dismissible>
-            系統已經關閉
+            系統目前未開放 / The system is not open now
           </v-alert>
         </v-card>
         <div id="router" v-bind:style="{ minHeight: Height + 'px' }">

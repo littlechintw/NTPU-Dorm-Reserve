@@ -32,14 +32,14 @@
           <v-row align="center" justify="center" length>
             <br />
           </v-row>
-          <v-row align="center" justify="center" length>
+          <!-- <v-row align="center" justify="center" length>
             <v-divider></v-divider>
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
-          </v-row>
+          </v-row> -->
           <v-row align="center" justify="center" length>
-            <v-card class="mx-auto" elevation="0" width="150">
+            <!-- <v-card class="mx-auto" elevation="0" width="150">
               <v-row align="center" justify="center" length>
                 <h3>2/17 ~ 2/19</h3>
               </v-row>
@@ -48,11 +48,11 @@
             <v-divider vertical></v-divider>
             <v-col>
               <v-card class="mx-auto" elevation="0" color="#E8F6EF">
-                <v-row align="center" justify="center" length>
+                <v-row align="center" justify="center" length >
                   <h4>09:00 - 12:00, 14:00 - 17:00</h4>
                 </v-row>
               </v-card>
-            </v-col>
+            </v-col> -->
           </v-row>
 
           <v-row align="center" justify="center" length>
@@ -74,13 +74,12 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h3>
-              <a
-                href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php"
-                target="_blank"
-                >https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php</a
-              >
-            </h3>
+            <a
+              href="https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php"
+              target="_blank"
+              style="font-weight: bold;"
+              >https://www.ntpu.edu.tw/admin/a8/org/a8-9/news.php</a
+            >
           </v-row>
           <v-row align="center" justify="center" length>
             <br />
