@@ -39,5 +39,5 @@ jobs:
         # Where static files are.
         build_dir: dist
         branch: gh-pages
-        cname: dorm-test.littlechin.tw
+        cname: ntpu-dorm.littlechin.tw
 
