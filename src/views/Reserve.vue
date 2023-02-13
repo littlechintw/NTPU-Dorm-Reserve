@@ -56,12 +56,12 @@
                 <br />
 
                 <!-- <h3>(一) 自主防疫史</h3> -->
-                <v-checkbox v-model="health_form.check_1" label="預計入住報到日，尚於自主防疫(同住密切接觸者)期間">
+                <v-checkbox v-model="health_form.check_1" label="入住報到日，尚於居家照護期間。I am in Home-care status (Covid-19 Patients) when I checked in.">
                 </v-checkbox>
 
                 <!-- <h3>(二) COVID-19有關症狀史 Symptoms related to COVID-19</h3> -->
                 <v-checkbox v-model="health_form.check_2"
-                  label="入住前 3 天內是否出現以下症狀：發燒 (額溫≧ 37.5℃、耳溫≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀 (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力。Have you had the following symptom(s) in the past 3 days: Fever (forehead temperature≧ 37.5℃, ear temperature≧ 38 ℃), Cough, Sore throat, Shortness of Breath, Dyspnea, Running nose, Muscle soreness or Joint pain, General fatigue.">
+                  label="入住前未完成入境者 7 天自主防疫。※[溫馨提醒]自國外返台需完成 7 天自主防疫後才能返回宿舍，詳請見衛保組公告 - 111 年度第一學期臺北大學防疫規範公告 (111.11.14更新) I haven’t completed 7 days of self-initiated prevention for arriving travelers. [Reminder]  Students returning to Taiwan from abroad must complete 7 days of self-initiated prevention before returning to the dormitory. Please refer to the announcement NTPU ANTI-EPIDEMIC REGULATIONS FOR FALL 2022 (UPDATED ON NOV. 14TH, 2022) from HCS. ">
                 </v-checkbox>
 
                 <br />
@@ -96,43 +96,33 @@
 
               <v-stepper-content step="3">
 
-                <h4>(一) 養成每日量溫習慣，進出宿舍請以酒精消毒雙手，回到寢室請以肥皂洗手。</h4>
-                <h5>Develop the habit of measuring temperature every day, disinfect
-                  your hands with alcohol when entering and leaving the dormitory, and wash your hands with soap when
-                  returning to the room.</h5>
+                <h4>(一) 回到寢室請以肥皂洗手。</h4>
+                <h5>Wash your hands with soap when returning to the room.</h5>
                 <br />
 
-                <h4>(二) 離開房間進入公共空間請全程佩戴口罩（包含使用廚房時）；搭乘電梯時請避免交談。</h4>
-                <h5>Please wear a mask whenever you leave the room (including
-                  when using the kitchen) and avoid conversation when taking the elevator.</h5>
+                <h4>(二) 室內空間請戴口罩。</h4>
+                <h5>Please wear a mask in indoor spaces.</h5>
                 <br />
 
-                <h4>(三) 寢室內部請自行定期清潔，並以稀釋漂白水 (1:100) 或酒精等消毒。</h4>
-                <h5>Please clean and use diluted bleach (1:100) or alcohol to
-                  disinfect your room regularly.</h5>
+                <h4>(三) 寢室內部請自行定期清潔，並以稀釋漂白水(1:100)或酒精等消毒。</h4>
+                <h5>Please clean and use diluted bleach (1:100) or alcohol to disinfect your room
+                regularly.</h5>
                 <br />
 
-                <h4>(四) 疫情警戒期間，請減少跨區交流。宿舍僅開放每日 9 - 21 時，不同棟宿生(辰曦樓不同性別樓層宿生)互訪，每次限額 1 人、限時 1 小時(可延長 1
-                  小時)。訪客進入宿舍前須至辦公室辦理登記。</h4>
-                <h5>During
-                  the epidemic period, please avoid communication between different floors and buildings. The
-                  dormitory
-                  is only open from 9 am. to 9 pm. daily for mutual visits between residents of different buildings
-                  (or
-                  residents of different sexes in the Glorious Morn Building). Visitors must check in at the SHS
-                  office
-                  before entering the dormitory.</h5>
+                <h4>(四) 疫情警戒期間，請減少跨區交流。宿舍僅開放每日9-21時，不同棟宿生(辰曦樓不同性別樓層宿生)互訪，每次限額1人、限時1小時(可延長1小時)。訪客及宿生進入宿舍前須至辦公室辦理登記。</h4>
+                <h5>During the epidemic
+                period, the dormitory is only open from 9 am. to 9 pm. daily for mutual visits between residents of different buildings
+                (or residents of different sexes in the Glorious Morn Building). Visitors and residents must check in at the SHS office
+                before entering the dormitory.</h5>
                 <br />
 
                 <h4>(五) 住宿期間如有身體不適症狀，如發燒 (額溫≧ 37.5℃、耳溫≧ 38℃)、咳嗽、喉嚨痛、呼吸道窘迫症狀
-                  (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力等，請先自行快篩，快篩結果如為陽性請立刻通報本組(02-86716784)。※如有發燒症狀，請立刻通報。</h4>
-                <h5>If you have any
-                  uncomfortable symptoms during your stay, such as fever (forehead temperature > 37.5°C, ear
-                  temperature
-                  > 38°C), cough, sore throat, respiratory distress (shortness of breath, difficulty breathing), runny
-                  nose, muscle or joint pain, limb weakness, etc., please use the rapid test. Please report to SHS
-                  (02-86716784) immediately if your rapid test is positive. ★ If you have a fever, please report it
-                  immediately.</h5>
+                (呼吸急促﹑呼吸困難)、流鼻水、肌肉或關節酸痛、四肢無力等，請先自行快篩，快篩結果如為陽性請立刻通報本組(02-86716784)。※如有發燒症狀，請立刻通報。</h4>
+                <h5>If you have any uncomfortable symptoms
+                during your stay, such as fever (forehead temperature > 37.5°C, ear temperature > 38°C), cough, sore throat, respiratory
+                distress (shortness of breath, difficulty breathing), runny nose, muscle or joint pain, limb weakness, etc., please use
+                the rapid test. Please report to SHS (02-86716784) immediately if your rapid test is positive. ★ If you have a fever,
+                please report it immediately.</h5>
                 <br />
 
                 <v-checkbox v-model="health_form.serious_2"
