@@ -125,6 +125,10 @@
                 please report it immediately.</h5>
                 <br />
 
+                <h4>(六) 入住報到前2日如有Covid-19相關症狀，請自行快篩陰性後再行入住。</h4>
+                <h5>Please make sure that you have a negative result from the rapid test if you have
+                experienced any suspected COVID-19 symptoms in the 2 days before check-in.</h5>
+
                 <v-checkbox v-model="health_form.serious_2"
                   label="我已詳閱上述宿舍防疫宣導，並於住宿期間願意配合相關規定。I have read through the Epidemic prevention of dormitory in detail, and I am willing to cooperate with the relevant regulations during my stay.">
                 </v-checkbox>
@@ -199,7 +203,7 @@
                 </v-btn>
               </v-stepper-content>
 
-              <v-stepper-step step="5">
+              <!-- <v-stepper-step step="5">
                 停車券 / Parking ticket
               </v-stepper-step>
 
@@ -222,13 +226,13 @@
                 <v-btn text @click="e13 = 4">
                   返回上一步 / Back
                 </v-btn>
-              </v-stepper-content>
+              </v-stepper-content> -->
 
-              <v-stepper-step step="6">
+              <v-stepper-step step="5">
                 最後確認 / Review
               </v-stepper-step>
 
-              <v-stepper-content step="6">
+              <v-stepper-content step="5">
                 <p v-show="health_form.check_1 || health_form.check_2" style="color: red" strong>
                   由於健康聲明書上述問題有選擇「是」，考慮到宿舍屬於集中式生活空間，請延後報到(請填寫延後入住申請問卷)，待狀況解除後，再另行報到入住。Given that
                   the dormitory is a mixed
@@ -240,13 +244,12 @@
                 <p style="color: grey">{{ get_event_name(reserve_form.event_id) }}</p>
                 <!-- <br /> -->
 
-                <h4>停車券 / Parking ticket</h4>
+                <!-- <h4>停車券 / Parking ticket</h4>
                 <p style="color: grey">{{ reserve_form.parking_radio === 'y' ? '需要停車券 / Need' : '不需要停車券 / No Need' }}
                 </p>
-                <!-- <br /> -->
 
                 <h4 v-show="reserve_form.parking_radio === 'y'">車號 / Car ID</h4>
-                <p style="color: grey" v-show="reserve_form.parking_radio === 'y'">{{ reserve_form.parking }}</p>
+                <p style="color: grey" v-show="reserve_form.parking_radio === 'y'">{{ reserve_form.parking }}</p> -->
 
                 <h4 style="color: red" class="rainbow-text">尚未完成預約，點選確認完成預約 / You need to press "Confirm" to reserve
                 </h4>
@@ -302,12 +305,12 @@
               </v-icon>
               {{ reserved_form.event }}
             </v-chip>
-            <v-chip class="ma-2" color="brown" outlined label>
+            <!-- <v-chip class="ma-2" color="brown" outlined label>
               <v-icon left>
                 mdi-car
               </v-icon>
               {{ reserved_form.parking }}
-            </v-chip>
+            </v-chip> -->
           </v-row>
           <!-- <v-row align="center" justify="left" length>
             <h3>停車券 / Parking ticket</h3>
@@ -519,7 +522,7 @@ export default {
         },
         data: {
           event: self.reserve_form.event_id,
-          parking: self.reserve_form.parking,
+          parking: 'no',
           health_form: {
             phone: self.health_form.phone,
             check_1: self.health_form.check_1,
