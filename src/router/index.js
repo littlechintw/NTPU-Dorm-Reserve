@@ -9,7 +9,7 @@ const routes = [
     name: 'Home',
     component: () => import('../views/Home.vue'),
     meta: {
-      title: '北大宿舍開宿預約',
+      title: '北大宿舍預約系統',
     },
   },
   // {
@@ -17,7 +17,7 @@ const routes = [
   //   name: 'Random',
   //   component: () => import('../views/Home.vue'),
   //   meta: {
-  //     title: 'Hi | 北大宿舍開宿預約',
+  //     title: 'Hi | 北大宿舍預約系統',
   //   },
   // },
   {
@@ -25,7 +25,7 @@ const routes = [
     name: 'Reserve',
     component: () => import('../views/Reserve.vue'),
     meta: {
-      title: '預約 | 北大宿舍開宿預約',
+      title: '預約 | 北大宿舍預約系統',
     },
   },
   {
@@ -33,7 +33,7 @@ const routes = [
     name: 'Login',
     component: () => import('../views/Login.vue'),
     meta: {
-      title: 'Login | 北大宿舍開宿預約',
+      title: 'Login | 北大宿舍預約系統',
     },
   },
   {
@@ -41,7 +41,7 @@ const routes = [
     name: 'Logout',
     component: () => import('../views/Logout.vue'),
     meta: {
-      title: 'Logout | 北大宿舍開宿預約',
+      title: 'Logout | 北大宿舍預約系統',
     },
   },
 ]
