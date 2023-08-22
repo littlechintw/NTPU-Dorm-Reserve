@@ -15,7 +15,7 @@
         <v-card>
           <v-alert type="red" dense text dismissible v-show="!apiStatus && !closeState">
             API seem bad, refresh this page for some times. If not work, please contact IT to solve this problem.
-             {{ apiurl }}
+            {{ apiurl }}
           </v-alert>
         </v-card>
         <v-card v-show="account">
@@ -36,7 +36,7 @@
 
     <v-footer padless class="font-weight-medium" color="#e9c46a">
       <v-col class="text-center" cols="12" style="font-size: 14px">
-        &copy; 2023 Copyright
+        &copy; 2021 - {{ dynamicYear }} Copyright
         <a href="https://littlechintw.github.io">littlechin.tw</a>. All rights
         reserved.
       </v-col>
@@ -66,6 +66,7 @@ export default {
     Width: 0,
     closeState: false,
     apiurl: "",
+    dynamicYear: new Date().getFullYear(),
   }),
   methods: {
     checkApiAlive() {
@@ -83,7 +84,7 @@ export default {
           console.log('API BAD')
           self.apiStatus = false
           console.log(error)
-          
+
         });
     }
   },
@@ -107,6 +108,7 @@ export default {
 
 <style>
 @import "./assets/font/font.css";
+
 /* div {
   font-family: Open Huninn;
 } */
@@ -114,6 +116,7 @@ export default {
   width: 80%;
   margin-left: 10%;
 }
+
 #app {
   font-family: Open Huninn;
 }

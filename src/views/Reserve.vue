@@ -16,7 +16,7 @@
           </v-row>
           <v-row v-show="loginStatus" align="center" justify="center" length>
             <v-stepper v-model="e13" vertical min-width="100%">
-              <v-stepper-step step="1" :complete="false">
+              <!-- <v-stepper-step step="1" :complete="false">
                 簡介 / Intro
               </v-stepper-step>
 
@@ -35,13 +35,12 @@
 
                 <br />
 
-                <!-- <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card> -->
                 <v-btn color="primary" @click="e13 = 2">
                   下一步 / Next
                 </v-btn>
-              </v-stepper-content>
+              </v-stepper-content> -->
 
-              <v-stepper-step step="2" :complete="false">
+              <!-- <v-stepper-step step="2" :complete="false">
                 健康聲明書 / Self-Health Declaration Form
               </v-stepper-step>
 
@@ -55,11 +54,9 @@
                 <v-divider></v-divider>
                 <br />
 
-                <!-- <h3>(一) 自主防疫史</h3> -->
                 <v-checkbox v-model="health_form.check_1" label="入住報到日，尚於居家照護期間。I am in Home-care status (Covid-19 Patients) when I checked in.">
                 </v-checkbox>
 
-                <!-- <h3>(二) COVID-19有關症狀史 Symptoms related to COVID-19</h3> -->
                 <v-checkbox v-model="health_form.check_2"
                   label="入住前未完成入境者 7 天自主防疫。※[溫馨提醒]自國外返台需完成 7 天自主防疫後才能返回宿舍，詳請見衛保組公告 - 111 年度第一學期臺北大學防疫規範公告 (111.11.14更新) I haven’t completed 7 days of self-initiated prevention for arriving travelers. [Reminder]  Students returning to Taiwan from abroad must complete 7 days of self-initiated prevention before returning to the dormitory. Please refer to the announcement NTPU ANTI-EPIDEMIC REGULATIONS FOR FALL 2022 (UPDATED ON NOV. 14TH, 2022) from HCS. ">
                 </v-checkbox>
@@ -80,7 +77,6 @@
                   label="本人如隱匿上述防疫事實，將自行承擔相關責任。If I conceal any facts about the pandemic prevention measure above, I will bear all the related responsibility">
                 </v-checkbox>
 
-                <!-- <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card> -->
                 <v-btn color="primary" @click="e13 = 3"
                   :disabled="!health_form.serious_1 || (health_form.phone === '') || (health_form.phone.length !== 10)">
                   下一步 / Next
@@ -88,9 +84,9 @@
                 <v-btn text @click="e13 = 1">
                   返回上一步 / Back
                 </v-btn>
-              </v-stepper-content>
+              </v-stepper-content> -->
 
-              <v-stepper-step step="3" :complete="false">
+              <!-- <v-stepper-step step="3" :complete="false">
                 宿舍防疫宣導 / Epidemic prevention in dormitory
               </v-stepper-step>
 
@@ -139,15 +135,15 @@
                 <v-btn text @click="e13 = 2">
                   返回上一步 / Back
                 </v-btn>
-              </v-stepper-content>
+              </v-stepper-content> -->
 
               <!-- <v-stepper-step :rules="[() => false]" step="4"> -->
-              <v-stepper-step step="4">
+              <v-stepper-step step="1">
                 選擇時段 / Choose time
                 <!-- <small>Alert message</small> -->
               </v-stepper-step>
 
-              <v-stepper-content step="4">
+              <v-stepper-content step="1">
 
                 <v-radio-group v-model="reserve_form.event_id">
                   <v-simple-table>
@@ -168,8 +164,7 @@
                       <tbody>
                         <tr v-for="item in events_list" :key="item.event_name">
                           <td>
-                            <v-radio :label="item.event_name" :value="item.event_id"
-                              :disabled="item.remainReserve <= 0">
+                            <v-radio :label="item.event_name" :value="item.event_id" :disabled="item.remainReserve <= 0">
                             </v-radio>
                           </td>
                           <td>
@@ -195,12 +190,12 @@
                 "startTime": "2022-09-01 09:00:00"
                 }, -->
 
-                <v-btn color="primary" @click="e13 = 5" :disabled="reserve_form.event_id === ''">
+                <v-btn color="primary" @click="e13 = 2" :disabled="reserve_form.event_id === ''">
                   下一步 / Next
                 </v-btn>
-                <v-btn text @click="e13 = 3">
+                <!-- <v-btn text @click="e13 = 3">
                   返回上一步 / Back
-                </v-btn>
+                </v-btn> -->
               </v-stepper-content>
 
               <!-- <v-stepper-step step="5">
@@ -228,21 +223,24 @@
                 </v-btn>
               </v-stepper-content> -->
 
-              <v-stepper-step step="5">
+              <v-stepper-step step="2">
                 最後確認 / Review
               </v-stepper-step>
 
-              <v-stepper-content step="5">
-                <p v-show="health_form.check_1 || health_form.check_2" style="color: red" strong>
+              <v-stepper-content step="2">
+                <!-- <p v-show="health_form.check_1 || health_form.check_2" style="color: red" strong>
                   由於健康聲明書上述問題有選擇「是」，考慮到宿舍屬於集中式生活空間，請延後報到(請填寫延後入住申請問卷)，待狀況解除後，再另行報到入住。Given that
                   the dormitory is a mixed
                   space where people from different places gather and live, If you select "Yes" on Self-Health
                   Declaration Form,
-                  we recommend that you delay your check-in until the situation is resolved.</p>
+                  we recommend that you delay your check-in until the situation is resolved.</p> -->
 
-                <h4>預約時間 / Reserve Time</h4>
-                <p style="color: grey">{{ get_event_name(reserve_form.event_id) }}</p>
-                <!-- <br /> -->
+                <v-card class="text-center mx-auto" outlined>
+                  <h4 class="ma-2">預約時間 / Reserve Time</h4>
+                  <p class="ma-2" style="color: grey">{{ get_event_name(reserve_form.event_id) }}</p>
+                </v-card>
+
+                <br />
 
                 <!-- <h4>停車券 / Parking ticket</h4>
                 <p style="color: grey">{{ reserve_form.parking_radio === 'y' ? '需要停車券 / Need' : '不需要停車券 / No Need' }}
@@ -251,8 +249,9 @@
                 <h4 v-show="reserve_form.parking_radio === 'y'">車號 / Car ID</h4>
                 <p style="color: grey" v-show="reserve_form.parking_radio === 'y'">{{ reserve_form.parking }}</p> -->
 
-                <h4 style="color: red" class="rainbow-text">尚未完成預約，點選確認完成預約 / You need to press "Confirm" to reserve
+                <h4 style="color: red">尚未完成預約，點選確認完成預約 / You need to press "Confirm" to reserve
                 </h4>
+
                 <br />
 
                 <v-btn color="primary" @click="addRecord()">
@@ -342,7 +341,7 @@
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length>
                     <img :src="'https://barcode.tec-it.com/barcode.ashx?data=' + reserved_form.qrcode"
-                      v-show="!reserved_form.checkIn" style="width: 200px"/>
+                      v-show="!reserved_form.checkIn" style="width: 200px" />
                   </v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
                   <v-row align="center" justify="center" length><br /></v-row>
@@ -351,54 +350,56 @@
             </v-card>
           </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <h4>可以將此 QRCode 以截圖方式留存，或於當日打開網站亦能顯示此 QRCode</h4>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <h5>You can save this QRCode as a
-              screenshot, or open the site to display the QRCode</h5>
-          </v-row>
-          <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <h4>建議關閉黑暗模式，如 QRCode 背景非為白色，將可能影響掃描</h4>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <h5>Suggest turn off the "Dark Mode"! If not a white background, it will affect to scan</h5>
-          </v-row>
-          <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <v-divider></v-divider>
-          </v-row>
-          <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <h4>
-              請注意，取消預約將有可能喪失原先預約時段，請您慎重操作此功能。
-            </h4>
-          </v-row>
-          <v-row align="center" justify="center" length>
-            <h5>
-              Notice! This is a dangerous operation, canceling will may lose the time you reserve previously.
-            </h5>
-          </v-row>
-          <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <h3 v-show="reserved_form.checkIn" style="background-color: pink">完成報到 / CheckIn Finished</h3>
-            <v-menu offset-y>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn outlined color="#B5563E" class="mr-4" v-bind="attrs" v-on="on" v-show="!reserved_form.checkIn">
-                  取消預約 / Cancel reserve
-                </v-btn>
-              </template>
-              <v-list>
-                <v-list-item @click="recordDelete()">
-                  <v-list-item-title>
-                    按下這個按鈕即取消 / Sure?
-                  </v-list-item-title>
-                </v-list-item>
-              </v-list>
-            </v-menu>
-          </v-row>
-          <v-row align="center" justify="center" length><br /></v-row>
+          <div v-show="!reserved_form.checkIn">
+            <v-row align="center" justify="center" length>
+              <h4>可以將此 QRCode 以截圖方式留存，或於當日打開網站亦能顯示此 QRCode</h4>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h5>You can save this QRCode as a
+                screenshot, or open the site to display the QRCode</h5>
+            </v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length>
+              <h4>建議關閉黑暗模式，如 QRCode 背景非為白色，將可能影響掃描</h4>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h5>Suggest turn off the "Dark Mode"! If not a white background, it will affect to scan</h5>
+            </v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length>
+              <v-divider></v-divider>
+            </v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length>
+              <h4>
+                請注意，取消預約將有可能喪失原先預約時段，請您慎重操作此功能。
+              </h4>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h5>
+                Notice! This is a dangerous operation, canceling will may lose the time you reserve previously.
+              </h5>
+            </v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length>
+              <h3 v-show="reserved_form.checkIn" style="background-color: pink">完成報到 / CheckIn Finished</h3>
+              <v-menu offset-y>
+                <template v-slot:activator="{ on, attrs }">
+                  <v-btn outlined color="#B5563E" class="mr-4" v-bind="attrs" v-on="on" v-show="!reserved_form.checkIn">
+                    取消預約 / Cancel reserve
+                  </v-btn>
+                </template>
+                <v-list>
+                  <v-list-item @click="recordDelete()">
+                    <v-list-item-title>
+                      按下這個按鈕即取消 / Sure?
+                    </v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </v-row>
+            <!-- <v-row align="center" justify="center" length><br /></v-row> -->
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -406,6 +407,8 @@
     <v-overlay v-show="initOverlay">
       <v-progress-circular indeterminate size="64"> </v-progress-circular>
     </v-overlay>
+
+    <br /><br />
   </v-card>
 </template>
 
@@ -477,7 +480,7 @@ export default {
           self.initOverlay = false;
           if (response.data.code === 200) {
             // console.log(response.data)
-            
+
             self.events_list = response.data.message.events;
             self.reserveDone = response.data.message.reserved;
 
@@ -614,6 +617,7 @@ export default {
     filter: hue-rotate(-360deg);
   }
 }
+
 .rainbow-text {
   display: inline-block;
   position: relative;
