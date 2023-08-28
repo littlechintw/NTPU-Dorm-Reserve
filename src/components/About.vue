@@ -88,7 +88,7 @@
             <br />
           </v-row>
           <v-row align="center" justify="left" length>
-            <h4>1. 以學生資訊系統登入</h4>
+            <h4>1. 以學生資訊系統帳號密碼登入</h4>
           </v-row>
           <v-row align="center" justify="left" length>
             <h5 style="color: gray">
