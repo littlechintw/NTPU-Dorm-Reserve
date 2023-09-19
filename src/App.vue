@@ -101,7 +101,7 @@ export default {
     this.closeState = config.closeState;
 
     this.checkForCookie();
-    const checkCookieInterval = setInterval(checkForCookie.bind(this), 1000); // 每 1 秒檢查一次
+    const checkCookieInterval = setInterval(this.checkForCookie, 1000); // 每 1 秒檢查一次
 
     this.Height = document.documentElement.clientHeight - 90;
     this.Width = document.documentElement.clientWidth;
