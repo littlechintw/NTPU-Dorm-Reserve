@@ -107,6 +107,7 @@ export default {
     loginWithGoogle() {
       this.$cookie.set("token", this.tokenValue, 1);
       this.$router.push("/reserve");
+      location.reload();
     },
   },
   mounted: function () {
