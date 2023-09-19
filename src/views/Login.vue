@@ -121,6 +121,7 @@ export default {
     },
     loginWithGoogleBtn() {
       this.$router.push("/api/google/login");
+      location.reload();
     }
   },
   mounted: function () {
