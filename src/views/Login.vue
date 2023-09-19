@@ -105,9 +105,8 @@ export default {
       }
     },
     loginWithGoogle() {
-      self.$cookie.set("token", this.tokenValue, 1);
-      self.$router.push("/reserve");
-      location.reload();
+      this.$cookie.set("token", this.tokenValue, 1);
+      this.$router.push("/reserve");
     },
   },
   mounted: function () {
@@ -120,7 +119,7 @@ export default {
     }
     if (params.has('token')) {
       this.tokenValue = params.get('token');
-      loginWithGoogle();
+      this.loginWithGoogle();
     }
   },
 };
