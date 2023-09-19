@@ -86,17 +86,23 @@ export default {
           console.log(error)
 
         });
+    },
+    checkForCookie() {
+      if (this.$cookie.get("token")) {
+        this.btn.title = "LOGOUT";
+        this.btn.url = "/logout";
+        this.reserveBtnShow = true;
+        this.account = Base64.decode(this.$cookie.get("id"));
+      }
     }
   },
   mounted() {
     this.checkApiAlive()
     this.closeState = config.closeState;
-    if (this.$cookie.get("token")) {
-      this.btn.title = "LOGOUT";
-      this.btn.url = "/logout";
-      this.reserveBtnShow = true;
-      this.account = Base64.decode(this.$cookie.get("id"));
-    }
+
+    this.checkForCookie();
+    const checkCookieInterval = setInterval(checkForCookie.bind(this), 1000); // 每 1 秒檢查一次
+
     this.Height = document.documentElement.clientHeight - 90;
     this.Width = document.documentElement.clientWidth;
     window.onresize = () => {
