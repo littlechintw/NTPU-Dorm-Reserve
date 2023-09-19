@@ -11,16 +11,19 @@
               <button @click="loginWithGoogle">使用Google登入</button>
             </v-row> -->
             <v-row align="center" justify="center" length>
-              <h3>請登入 Google Workspace 帳號</h3>
+              <h3>登入校內 Google Workspace 帳號</h3>
             </v-row>
 
             <v-row align="center" justify="center" length>
               <h5 style="color: gray">
-                Login with your Google Workspace account.
+                Login with school Google Workspace account.
               </h5>
             </v-row>
 
             <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+
+
             <v-row align="center" justify="center" length>
               <div class="google-btn" @click="loginWithGoogleBtn">
                 <div class="google-icon-wrapper">
@@ -31,14 +34,57 @@
                   <b>Sign in with Google</b>
                 </div>
               </div>
-              <!-- <v-form ref="form" v-model="valid" v-on:submit.prevent="validate" lazy-validation>
+            </v-row>
+
+            <v-row class="ma-4" align="center" justify="center" length>
+              <p class="ma-2">帳號結尾為 / The account ending in <v-chip outlined small color="green">@gm.ntpu.edu.tw</v-chip>
+              </p>
+            </v-row>
+
+            <!-- <v-row align="center" justify="center" length><br /></v-row> -->
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-divider></v-divider>
+            <v-row align="center" justify="center" length><br /></v-row>
+            <v-row align="center" justify="center" length><br /></v-row>
+
+
+
+            <!-- <v-row align="center" justify="center" length>
+              <p>密碼為校內 Google Workspace 帳號密碼 / The password is the password of the school Google Workspace account</p>
+            </v-row> -->
+
+            <v-row align="center" justify="center" length>
+              更多資訊 / 遇到問題，可參考資訊中心網頁，或洽詢資訊中心
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h5 style="color: gray">
+                For more information / If you have any questions, please refer to the computer and information center
+                website or
+                contact the computer and information center
+              </h5>
+            </v-row>
+
+            <v-row align="center" justify="center" length><br /></v-row>
+
+            <v-row align="center" justify="center" length>
+              <a href="https://cc.ntpu.edu.tw/zh/mail.html" target="_blank">https://cc.ntpu.edu.tw/zh/mail.html</a>
+            </v-row>
+            <!-- <v-row align="center" justify="center" length>
+              <h4></h4>
+            </v-row>
+            <v-row align="center" justify="center" length>
+              <h5 style="color: gray">
+                Login with your Google Workspace account.
+              </h5>
+            </v-row> -->
+
+            <!-- <v-form ref="form" v-model="valid" v-on:submit.prevent="validate" lazy-validation>
                 <v-text-field v-model="stuid" :rules="stuidRules" label="學號 / Student ID" type="number"
                   required></v-text-field>
                 <v-text-field v-model="pwd" :rules="pwdRules" label="密碼 / Password" type="password"
                   required></v-text-field>
                 <v-btn :disabled="!valid" color="#87C1A2" class="mr-4" @click="validate">登入 / Login</v-btn>
               </v-form> -->
-            </v-row>
             <v-row align="center" justify="center" length>
               <br />
             </v-row>
