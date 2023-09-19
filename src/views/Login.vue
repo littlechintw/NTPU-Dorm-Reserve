@@ -4,9 +4,6 @@
       <v-row>
         <v-col cols="12">
           <v-row align="center" justify="center" length><br /></v-row>
-          <v-row align="center" justify="center" length>
-            <h1 style="color: red">{{ errValue }}</h1>
-          </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
           <div v-show="formShow">
 
@@ -81,7 +78,6 @@ export default {
       formShow: true,
       formLoadingShow: false,
       tipsText: "",
-      errValue: "",
       tokenValue: "",
     };
   },
@@ -130,7 +126,7 @@ export default {
     }
     const params = new URLSearchParams(window.location.search);
     if (params.has('err')) {
-      this.errValue = params.get('err');
+      this.tipsText = params.get('err');
     }
     if (params.has('token')) {
       this.tokenValue = params.get('token');
