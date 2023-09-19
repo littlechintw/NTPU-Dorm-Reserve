@@ -4,8 +4,15 @@
       <v-row>
         <v-col cols="12">
           <v-row align="center" justify="center" length><br /></v-row>
+          <v-row align="center" justify="center" length>
+            <h1 style="color: red">{{ errValue }}</h1>
+          </v-row>
           <v-row align="center" justify="center" length><br /></v-row>
           <div v-show="formShow">
+
+            <!-- <v-row align="center" justify="center" length>
+              <button @click="loginWithGoogle">使用Google登入</button>
+            </v-row> -->
             <v-row align="center" justify="center" length>
               <h3>請登入學生資訊系統帳號</h3>
             </v-row>
@@ -16,33 +23,12 @@
               </h5>
             </v-row>
             <v-row align="center" justify="center" length>
-              <v-form
-                ref="form"
-                v-model="valid"
-                v-on:submit.prevent="validate"
-                lazy-validation
-              >
-                <v-text-field
-                  v-model="stuid"
-                  :rules="stuidRules"
-                  label="學號 / Student ID"
-                  type="number"
-                  required
-                ></v-text-field>
-                <v-text-field
-                  v-model="pwd"
-                  :rules="pwdRules"
-                  label="密碼 / Password"
-                  type="password"
-                  required
-                ></v-text-field>
-                <v-btn
-                  :disabled="!valid"
-                  color="#87C1A2"
-                  class="mr-4"
-                  @click="validate"
-                  >登入 / Login</v-btn
-                >
+              <v-form ref="form" v-model="valid" v-on:submit.prevent="validate" lazy-validation>
+                <v-text-field v-model="stuid" :rules="stuidRules" label="學號 / Student ID" type="number"
+                  required></v-text-field>
+                <v-text-field v-model="pwd" :rules="pwdRules" label="密碼 / Password" type="password"
+                  required></v-text-field>
+                <v-btn :disabled="!valid" color="#87C1A2" class="mr-4" @click="validate">登入 / Login</v-btn>
               </v-form>
             </v-row>
             <v-row align="center" justify="center" length>
@@ -52,19 +38,11 @@
           <div v-show="formLoadingShow">
             <v-row align="center" justify="center" length><br /></v-row>
             <v-row align="center" justify="center" length>
-              <v-progress-circular
-                indeterminate
-                color="amber"
-              ></v-progress-circular>
+              <v-progress-circular indeterminate color="amber"></v-progress-circular>
             </v-row>
           </div>
           <br />
-          <v-row
-            align="center"
-            justify="center"
-            length
-            style="background-color: #17252a; color: white; zoom: 1.3"
-          >
+          <v-row align="center" justify="center" length style="background-color: #17252a; color: white; zoom: 1.3">
             {{ tipsText }}
           </v-row>
         </v-col>
@@ -92,6 +70,8 @@ export default {
       formShow: true,
       formLoadingShow: false,
       tipsText: "",
+      errValue: "",
+      tokenValue: "",
     };
   },
   components: {},
@@ -124,10 +104,23 @@ export default {
           });
       }
     },
+    loginWithGoogle() {
+      self.$cookie.set("token", this.tokenValue, 1);
+      self.$router.push("/reserve");
+      location.reload();
+    },
   },
   mounted: function () {
     if (this.$cookie.get("token")) {
       this.$router.push("/reserve");
+    }
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('err')) {
+      this.errValue = params.get('err');
+    }
+    if (params.has('token')) {
+      this.tokenValue = params.get('token');
+      loginWithGoogle();
     }
   },
 };

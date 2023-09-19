@@ -37,6 +37,14 @@ const routes = [
     },
   },
   {
+    path: '/logingoogle',
+    name: 'Login Google',
+    component: () => import('../views/LoginGoogle.vue'),
+    meta: {
+      title: 'Login with Google | 北大宿舍預約系統',
+    },
+  },
+  {
     path: '/logout',
     name: 'Logout',
     component: () => import('../views/Logout.vue'),

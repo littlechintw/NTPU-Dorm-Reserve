@@ -16,6 +16,7 @@
     "vue": "^2.6.11",
     "vue-analytics": "^5.22.1",
     "vue-cookie": "^1.1.4",
+    "vue-google-oauth2": "^1.5.10",
     "vue-qrcode-component": "^2.1.1",
     "vue-router": "^3.2.0",
     "vuetify": "^2.4.0",

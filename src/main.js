@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import vuetify from './plugins/vuetify'
+import GAuth from 'vue-google-oauth2';
 
 Vue.config.productionTip = false
 
@@ -22,7 +23,14 @@ Vue.use(VueAnalytics, {
   checkDuplicatedScript: true
 })
 
-// import VueMarkdown from 'vue-markdown'
+const gauthOption = {
+  clientId: '54064734422-1nk5g1ag3n29qbqpero42krrtpdkugmd.apps.googleusercontent.com',
+  scope: 'profile email',
+  prompt: 'select_account',
+  fetch_basic_profile: true,
+};
+
+Vue.use(GAuth, gauthOption);
 
 new Vue({
   router,
