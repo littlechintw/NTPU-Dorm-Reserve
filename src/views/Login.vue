@@ -14,22 +14,33 @@
               <button @click="loginWithGoogle">使用Google登入</button>
             </v-row> -->
             <v-row align="center" justify="center" length>
-              <h3>請登入學生資訊系統帳號</h3>
+              <h3>請登入 Google Workspace 帳號</h3>
             </v-row>
 
             <v-row align="center" justify="center" length>
               <h5 style="color: gray">
-                Login with your student information system account.
+                Login with your Google Workspace account.
               </h5>
             </v-row>
+
+            <v-row align="center" justify="center" length><br /></v-row>
             <v-row align="center" justify="center" length>
-              <v-form ref="form" v-model="valid" v-on:submit.prevent="validate" lazy-validation>
+              <div class="google-btn" @click="loginWithGoogleBtn">
+                <div class="google-icon-wrapper">
+                  <img class="google-icon"
+                    src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                </div>
+                <div class="btn-text">
+                  <b>Sign in with Google</b>
+                </div>
+              </div>
+              <!-- <v-form ref="form" v-model="valid" v-on:submit.prevent="validate" lazy-validation>
                 <v-text-field v-model="stuid" :rules="stuidRules" label="學號 / Student ID" type="number"
                   required></v-text-field>
                 <v-text-field v-model="pwd" :rules="pwdRules" label="密碼 / Password" type="password"
                   required></v-text-field>
                 <v-btn :disabled="!valid" color="#87C1A2" class="mr-4" @click="validate">登入 / Login</v-btn>
-              </v-form>
+              </v-form> -->
             </v-row>
             <v-row align="center" justify="center" length>
               <br />
@@ -108,6 +119,9 @@ export default {
       this.$cookie.set("token", this.tokenValue, 1);
       this.$router.push("/reserve");
     },
+    loginWithGoogleBtn() {
+      this.$router.push("/api/google/login");
+    }
   },
   mounted: function () {
     if (this.$cookie.get("token")) {
@@ -124,3 +138,64 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.google-btn {
+  width: 184px;
+  height: 42px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .25);
+  display: flex;
+  align-items: center;
+  /* 垂直置中 */
+  position: relative;
+
+  .google-icon-wrapper {
+    position: relative;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    /* 水平置中 */
+    align-items: center;
+    /* 垂直置中 */
+  }
+
+  .google-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .btn-text {
+    margin-left: 10px;
+    /* 增加左側空白 */
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+    display: flex;
+    /* 使用 flexbox 排列內容 */
+    flex-direction: column;
+    /* 垂直排列內容 */
+    align-items: center;
+    /* 內容垂直置中 */
+    justify-content: center;
+    /* 內容水平置中 */
+  }
+
+  &:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+
+  &:active {
+    background: #1669F2;
+  }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+</style>
